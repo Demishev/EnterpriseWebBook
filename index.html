@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>The Book: Enterprise Web Development: From Desktop to Mobile  by Farata</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>The Book: Enterprise Web Development: From Desktop to Mobile </h1>
+        <p>source code repository for upcoming O'Reilly's «Enterprise Web Development. From Desktop to Mobile» book</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/Farata/EnterpriseWebBook" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/Farata/EnterpriseWebBook/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/Farata/EnterpriseWebBook/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>Enterprise Web Development: From Desktop to Mobile</h1>
+
+<p>This ia a home of the new book (work in progress) «Enterprise Web Development. From Desktop to Mobile».
+There are four co-authors of this book: Yakov Fain, Victor Rasputnis, Viktor Gamov, and Anatole Tartakovsky.
+The book is released under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license</a> meaning
+you can both get a copy of the book for free or help to further improve it.
+This book will be printed and available for purchase via <a href="http://oreilly.com/">O'Reilly Media</a>. Readers will have an option of purchasing this
+book in a number of digital formats.</p>
+
+<h2>Table Of Contents</h2>
+
+<ul>
+<li><h3><a href="EnterpriseWebBook/blob/master/0_Introduction/Introduction.mdown">Introduction</a></h3></li>
+<li>
+<h3>Part 1. Desktop</h3>
+
+<ul>
+<li><a href="#ch1">Ch1. HTML5 and its New APIs</a></li>
+<li><a href="#ch2">Ch2. Mocking Up the “Save a Child” Web Site</a></li>
+<li><a href="#ch3">Ch3. Advanced Intro to JavaScript</a></li>
+<li><a href="#ch4">Ch4. Using Ajax and JSON</a></li>
+<li><a href="#ch5">Ch5. Test-Driven Development with JavaScript</a></li>
+<li><a href="#ch6">Ch6. «Save a Child» with JQuery framework</a></li>
+<li><a href="#ch7">Ch7. «Save a Child» with Ext JS framework</a></li>
+<li><a href="#ch8">Ch8. Replacing HTTP with WebSockets</a></li>
+<li><a href="#ch9">Ch9. Securing Web Applications</a></li>
+<li><a href="#ch10">Ch10. Large Scale JavaScript Projects</a></li>
+</ul>
+</li>
+<li>
+<h3>Part 2. Mobile</h3>
+
+<ul>
+<li><a href="#ch11">Ch11. Responsive Design: One Site Fits All</a></li>
+<li><a href="#ch12">Ch12. «Save a Child» With JQuery Mobile</a></li>
+<li><a href="#13">Ch13. «Save a Child» with Sencha Touch</a></li>
+<li><a href="#14">Ch14. Hybrid Applications: HTML + Native API</a></li>
+</ul>
+</li>
+</ul><h1><a name="ch1">HTML5 and its New APIs</a></h1>
+
+<p>Provide a brief overview of all APIs that are included in HTML5 spec (Web Storage, WebSQL, Web Sockets, Web Workers). List the browsers supporting HTML5. Is it safe to start an HTML5 project since not all Web browsers fully support HTML5?</p>
+
+<h1><a name="ch2">Mocking Up the «Save a Child» Web Site</a></h1>
+
+<p>Create a  mock up of the sample Web site Save a Child that supports donations to ill children. The Web site has to support videos, images and be integrated with some payments system. The mockup should include three versions of the UI: desktop, tablet, smart phone.
+By the end of this chapter the HTML version of Save a Child is ready with hardcoded data.</p>
+
+<h1><a name="ch3">Advanced Intro to JavaScript</a></h1>
+
+<p>This chapter should cover the JavaScript language overview based on the «Advanced Intro to JavaScript» presentation : Objects, Functions, Closures, JS in the Web Browser. All examples should be re-written as building blocks for the «Save a Child» site. Coverage of the tools (IDE, Web inspectors and debuggers go here too).
+By the end of this chapter we’ll have a new version of Save a Child, which includes some scripts in JavaScript. All the data are stored in a plain text format in local files.</p>
+
+<h1><a name="ch4">Using Ajax and JSON</a></h1>
+
+<p>After explaining the JSON data format we’ll deploy Save a Child under the remote Tomcat server on one of our servers. We’ll also provide the instructions on installing Tomcat on the local machine for those readers who want to do it.
+Then goes the explanation of the AJAX way of retrieving data from the remote server without the need to refresh the entire page.
+In the final version of the Web site the data feed will be organized by a Java program deployed under a Java EE server – we’ll use Oracle’s GlassFish 4.0 for being the leader in implementing all the latest Java EE specifications.</p>
+
+<h1><a name="ch5">Test-Driven Development with JavaScript</a></h1>
+
+<p>The chapter starts with a brief overview of available test frameworks. Then, it explains how to set up a new Save a Child  project in the IDE using selected test framework.</p>
+
+<h1><a name="ch6">«Save a Child» with JQuery framework</a></h1>
+
+<p>In this chapter we’ll start introducing JQuery framework to Save a Child code developed in chapters 2-5. While this chapter won’t have a formal tutorial on the JQuery framework, we’ll briefly explain its basics and each component that’ll be used in Save a Child.
+By the end of this chapter the reader has a working version of Save a Child site built using HTML, JavaScript, CSS, JSon, Ajax, and JQuery framework.</p>
+
+<h1><a name="ch7">«Save a Child» with Ext JS framework»</a></h1>
+
+<p>In this chapter we’ll use some of the code from ch 2-5, but this time we’ll use the Sencha’s Ext JS framework.
+The reader will learn the principles of building Web sites with Ext JS.
+We’ll demo the use of our own open source generator Clear Data Builder that can generate the EXT JS code based on Java classes.
+By the end of this chapter the reader will have working version of the Save a Child Web site. We’ll also compare the pros and cons of its Ext JS and JQuery’s versions.</p>
+
+<h1><a name="ch8">Replacing HTTP with WebSockets</a></h1>
+
+<p>This chapter will introduce the WebSocket API, which is a part of HTML5 spec. We’ll pick one of the data flow in Save a Child site and replace HTTP communication with WebSockets protocol.
+Using the monitoring tool we’ll show the performance bandwidth usage benefits that WebSockets protocol brings to the Web.
+This chapter will be based on <a href="http://www.youtube.com/watch?v=vP6MfPnE1c0">this WebSockets presentation</a>.</p>
+
+<h1><a name="ch9">Securing Web Applications</a></h1>
+
+<p>This chapter will add authentication and authorization features for the users Save a child. They will be able to login to this Web site and perform different actions according to their role.</p>
+
+<h1><a name="ch10"></a></h1>
+
+<p>The Save a Chile site is a rather small Web project. But in the enterprise world, lots of applications have a lot larger code base. In this chapter we’ll give an example of how to build modularized Web applications that can load the code on as needed basis. We’ll also give an example of how to organize the data exchange between different modules in a loosely coupled fashion.</p>
+
+<h1><a name="ch11">Responsive Design: One Site Fits All</a></h1>
+
+<p>The chapter starts with a brief overview of different approaches to making the Web site to the mobile space. One of the approaches is having only one Web site for all devices. This approach is is called Responsive Design, and we’ll modify the design of the Save a Child site to introduce different layouts for the desktop, tablet, and smartphone devices.
+By the end of this chapter the site Save a Child will automatically change its layout based on the user’s device without the losing any functionality.</p>
+
+<h1><a name="ch12">«Save a Child» With JQuery Mobile</a></h1>
+
+<p>This chapter will demonstrate how to build the mobile version of Save a Child using JQuery Mobile framework.</p>
+
+<h1><a name="ch13">«Save a Child» with Sencha Touch</a></h1>
+
+<p>This chapter will demonstrate how to build the mobile version of Save a Child using the Sencha Touch framework.</p>
+
+<h1><a name="ch14">Hybrid Applications: HTML + Native API</a></h1>
+
+<p>This chapter explains how to add the bridge HTML and native mobile API with the Phone GAP framework. It’ll add the GPS service to the mobile version of “Save a Child”.</p>
+
+<p>[introduction]:  </p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/Farata">Farata</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
