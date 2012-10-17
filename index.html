@@ -1326,14 +1326,16 @@ girlfriend will have a data type of String:</p></div>
 will have the global scope. Variables declared with var inside functions
 are local. Consider the following function declaration:</p></div>
 <div class="listingblock">
-<div class="content monospaced">
-<pre>function addPersonalInfo(){
-   var address =“123 Main Street”;      // local String variable
-   age=25;                              // global Number variable
-   var isMarried = true;                // local boolean variable
-       isMarried = “don't remember”;    // now it's of String type
-}</pre>
-</div></div>
+<div class="content"><!-- Generator: GNU source-highlight 3.1.7
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="font-weight: bold"><span style="color: #000000">addPersonalInfo</span></span><span style="color: #990000">()</span><span style="color: #FF0000">{</span>
+   <span style="font-weight: bold"><span style="color: #0000FF">var</span></span> address <span style="color: #990000">=</span><span style="color: #FF0000">"123 Main Street"</span><span style="color: #990000">;</span>      <span style="font-style: italic"><span style="color: #9A1900">// local String variable</span></span>
+   age<span style="color: #990000">=</span><span style="color: #993399">25</span><span style="color: #990000">;</span>                              <span style="font-style: italic"><span style="color: #9A1900">// global Number variable</span></span>
+   <span style="font-weight: bold"><span style="color: #0000FF">var</span></span> isMarried <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">true</span></span><span style="color: #990000">;</span>                <span style="font-style: italic"><span style="color: #9A1900">// local boolean variable</span></span>
+       isMarried <span style="color: #990000">=</span> <span style="color: #FF0000">"don't remember"</span><span style="color: #990000">;</span>    <span style="font-style: italic"><span style="color: #9A1900">// now it's of String type</span></span>
+<span style="color: #FF0000">}</span></tt></pre></div></div>
 <div class="paragraph"><p>The variables address and isMarried are visible only inside the function
 <span class="monospaced">addPersonalInfo()</span>. The variable age becomes global because of omission
 of the keyword var. The variable isMarried changes its type from Boolean
@@ -16128,7 +16130,7 @@ mobile phone.</p></div>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-10-14 04:20:33 EDT
+Last updated 2012-10-17 10:08:57 EDT
 </div>
 </div>
 </body>
