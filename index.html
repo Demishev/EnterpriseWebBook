@@ -908,7 +908,7 @@ stack. But only the first chapter of this book will offer you an
 overview of the latest HTML5 tags and APIs. The second chapter is an
 advanced introduction to JavaScript. Chapers 3 and 11 are about
 designing the Web site Save the Child. The rest of the book is about
-building it learning whatever is required on the go. We’ll be using
+building it learning whatever is required on the go. We&#8217;ll be using
 dynamic HTML (DHTML), which is HTML5, JavaScript, and Cascading Style
 Sheets (CSS). We&#8217;ll add to the mix the XMLHttpRequest object that lives
 in a Web browser and communicates with the server without the need to
@@ -920,7 +920,7 @@ of choice for data exchange between the Web browser and the server.</p></div>
 <div class="paragraph"><p>DHTML has been introduced in Microsoft Internet Explorer (IE) 5, and
 several years later it was substituted with a more popular acronym AJAX.
 Back in 1999 Microsoft created XMLHttpRequest object to allow the Web
-version of their mail client Outlook to update the browser’s window
+version of their mail client Outlook to update the browser&#8217;s window
 without the need to refresh the entire Web page. The market share of IE5
 was about 90%, but in enterprises it was literally the only approved
 browser.</p></div>
@@ -947,10 +947,10 @@ dropdown does not show any data in one browser while working fine in all
 others. Can you imagine a situation when the click event is not always
 generated while working in Java, Flex, or Silverlight? Get ready for
 such surprises while testing your DHTML application.</p></div>
-<div class="paragraph"><p>You’ll save some time because there is no need to compile JavaScript,
+<div class="paragraph"><p>You&#8217;ll save some time because there is no need to compile JavaScript,
 but you&#8217;ll spend more time testing deployed code. The final deliverable
 of an HTML5 project may have as low as half of the functionality
-comparing to the same project developed for a VM. But you’ll gain a
+comparing to the same project developed for a VM. But you&#8217;ll gain a
 little better Web adaptability, easier implementation of full text
 search and mashups. The integration with other technologies will also
 become easier with HTML/JavaScript. You have to decide if all these
@@ -958,14 +958,14 @@ advantages are important to your application. If they are – choose
 HTML5.</p></div>
 <div class="paragraph"><p>But JavaScript will enforce its limitations on any serious and complex
 enterprise project. You can develop a number of fairly independent
-windows, but creating a well debugged HTML5 won’t be easy.</p></div>
+windows, but creating a well debugged HTML5 won&#8217;t be easy.</p></div>
 <div class="paragraph"><p>In this book we&#8217;ll be using some JavaScript frameworks - the are dozens
 of those on the market. Several of them promise to cover all the needs
 of your Web application. Overall, there are two main categories of
 frameworks:</p></div>
 <div class="quoteblock">
 <div class="content">
-<div class="paragraph"><p>a) Those that allow you to take an existing DHTML Web site and easily add new attributes to all or some page elements so they would start shining, blinking, or do some other fun stuff. Such frameworks don’t promote component-based development. They may not include navigation components, grids, trees, which are pretty typical for any UI of the corporate tasks. JQuery is probably the best representative of this group. It&#8217;s light (30Kb) and very easy to learn.</p></div>
+<div class="paragraph"><p>a) Those that allow you to take an existing DHTML Web site and easily add new attributes to all or some page elements so they would start shining, blinking, or do some other fun stuff. Such frameworks don&#8217;t promote component-based development. They may not include navigation components, grids, trees, which are pretty typical for any UI of the corporate tasks. JQuery is probably the best representative of this group. It&#8217;s light (30Kb) and very easy to learn.</p></div>
 <div class="paragraph"><p>b) Another group of frameworks offers rich libraries of high-level components and allow you to extend them. But overall, such components are supposed to be used together becoming a platform for your Web UI. These components process some events, offer support of the Model-View-Controller paradigm, have a proprietary way of laying out elements on the Web page, organize navigation et al. Ext JS from Sencha belongs to this group.</p></div>
 </div>
 <div class="attribution">
@@ -974,12 +974,12 @@ frameworks:</p></div>
 applications with each of these popular frameworks. JQuery is good for
 improving an existing JavaScript site. JQuery can be used to program
 about 80% of a Web site. You should use it for the look and feel
-support, which is what it’s meant for. But you can’t use it for building
+support, which is what it&#8217;s meant for. But you can&#8217;t use it for building
 your application component model. The component model of Ext JS is
 applicable in about 20% of a Web site, which includes an application
-piece rather than just being a set of Web pages. Typically it’s a
+piece rather than just being a set of Web pages. Typically it&#8217;s a
 serious view navigator or a wizard to implement a serious business
-process or a workflow that includes a client’s part.</p></div>
+process or a workflow that includes a client&#8217;s part.</p></div>
 <div class="quoteblock">
 <div class="content">
 <div class="paragraph"><p>JavaScript frameworks are hiding from a developer all incompatibilities
@@ -1007,7 +1007,7 @@ parameters. In JavaScript you can only guess if the parameter names are
 self descriptive. Take the Google&#8217;s framework GWT that allows developers
 write code in Java with auto-generation of the JavaScript code. Writing
 code in one language with further conversion and deployment in another
-one is a controversial idea, because after writing the code you’ll need
+one is a controversial idea, because after writing the code you&#8217;ll need
 to be able to debug it. This is when a Java developer meets a foreign
 language JavaScript.The ideology and psychology of programming in
 JavaScript and Java are different. A person who writes in Java/GWT has
@@ -1016,14 +1016,16 @@ to know how to read and interpret deployed JavaScript code.</p></div>
 introducing classes and more familiar syntax for object-oriented
 languages. Technically they are extending or replacing the constructs of
 the JavaScript itself extending the alphabet. Ext JS recommends creating
-objects using ext.create instead of the operator new. But Ext JS is
+objects using <span class="monospaced">ext.create</span> instead of the operator new. But Ext JS is
 still a JavaScript framework.</p></div>
 <div class="paragraph"><p>JQuery framework substantially simplifies working with browser&#8217;s DOM
 elements and there are millions of small components that know how to do
 one thing well, for example, an image slider. But it&#8217;s still JavaScript
 and requires developers to understand the power of JavaScript functions,
-callbacks, and closures. ##Should we develop in HTML5 if its standard is
-not finalized yet?</p></div>
+callbacks, and closures.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_should_we_develop_in_html5_if_its_standard_is_not_finalized_yet">Should we develop in HTML5 if its standard is not finalized yet?</h3>
 <div class="paragraph"><p>The short answer is yes. If you are planning to develop mainly for the
 mobile market, it&#8217;s well equipped with the latest Web browsers and if
 you&#8217;ll run into issues there. they won&#8217;t be caused by the lack of HTML5
@@ -1039,9 +1041,9 @@ need to be fixing the framework&#8217;s code here and there. Maintaining
 compatibility is a huge challenge for any framework&#8217;s vendor, which in
 some cases can consist of just one developer. You shouldn&#8217;t have hard
 feelings against the developers behind the framework of your choice.
-These guys simply don’t have time to fix everything. You need to form an
+These guys simply don&#8217;t have time to fix everything. You need to form an
 attitude that a JavaScript framework is similar to a good Legos set that
-will require your creativity too. Don’t get angry. Cure the framework.
+will require your creativity too. Don&#8217;t get angry. Cure the framework.
 Spend some time working on the framework, and then work on your
 application code. Ideally, submit your fixes back to the framework&#8217;s
 code base - most of them are open source.</p></div>
@@ -1066,13 +1068,13 @@ duplicates?</p></div>
 <li>
 <p>
 Modularization of your application. If your application has certain
-seldom used menus don’t even load the code that handles this menu.
+seldom used menus don&#8217;t even load the code that handles this menu.
 </p>
 </li>
 <li>
 <p>
 Perceived performance. How quickly the main window of your application
-is loaded to the user’s computer? How heavy is the framework’s code
+is loaded to the user&#8217;s computer? How heavy is the framework&#8217;s code
 base?
 </p>
 </li>
@@ -1095,7 +1097,7 @@ components? Is the event model well designed?
 <li>
 <p>
 Does the framework of your choice cover most of the needs of your
-application, or you’ll need to use several frameworks?
+application, or you&#8217;ll need to use several frameworks?
 </p>
 </li>
 <li>
@@ -1118,16 +1120,16 @@ Is there an active community to ask for help with technical questions?
 </ul></div>
 <div class="paragraph"><p>We could continue adding items to this list. Our message is that
 developing HTML5 applications is not just about adding tag video and
-canvas to a Web page. It’s about serious JavaScript programming.</p></div>
+canvas to a Web page. It&#8217;s about serious JavaScript programming.</p></div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_html5_and_its_new_apis">HTML5 and its New APIs</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>This is the first and only chapter in this book that’s dedicated to
-HTML5. You’ll get familiar with some new HTML tags that were introduced
-to make the markup more semantic and convenient. We’ll also provide a brief overview of
+<div class="paragraph"><p>This is the first and only chapter in this book that&#8217;s dedicated to
+HTML5. You&#8217;ll get familiar with some new HTML tags that were introduced
+to make the markup more semantic and convenient. We&#8217;ll also provide a brief overview of
 selected APIs that are included in HTML5 spec (Web Storage, WebSQL, Web
 Sockets, and Web Workers).</p></div>
 <div class="paragraph"><p>The majority of the modern Web browsers already support the current
@@ -1141,7 +1143,7 @@ outdated browsers for some time:</p></div>
 Computer illiterate people who are afraid of installing any new
 software one their PCs. Especially, people of the older generation.
 <em>`&#8216;John, after the last visit of our grandson our computer works even
-slower than before. Please don’t let him install these new fancy
+slower than before. Please don&#8217;t let him install these new fancy
 browsers here. I just need my old Internet Explorer, access to Hotmail
 and Facebook&#8217;'</em> .
 </p>
@@ -1163,19 +1165,19 @@ denominator browser often wins.
 <div class="paragraph"><p>In the worst case scenario, Web developers need to make both of these
 groups happy. Take an online banking - this old couple has to be able to
 use your Web application from their old PCs otherwise they can transfer
-their lifetime savings to a different bank which doesn’t require the
+their lifetime savings to a different bank which doesn&#8217;t require the
 later version of Firefox for online banking.</p></div>
-<div class="paragraph"><p>Does it mean that enterprise Web developers shouldn’t even bother using
-HTML5 that’s not 100% supported? Not at all. This means that a
-substantial portion of their application’s code will be will be bloated
+<div class="paragraph"><p>Does it mean that enterprise Web developers shouldn&#8217;t even bother using
+HTML5 that&#8217;s not 100% supported? Not at all. This means that a
+substantial portion of their application&#8217;s code will be will be bloated
 by the if-statements figuring out what this specific Web browser
 supports and providing several solutions that keep your application on
 float in any Web browser. This what makes the job of DHTML developers a
 lot more difficult than of, say Java developers who know exactly the
-environment where their code will work. Of you don’t install the
-JavaRuntime of version 1.6 our application won’t work. As simple as
+environment where their code will work. Of you don&#8217;t install the
+JavaRuntime of version 1.6 our application won&#8217;t work. As simple as
 that. How about asking Java developers writing applications that will
-work in any runtime released during the last 10 years? No, we’re not
+work in any runtime released during the last 10 years? No, we&#8217;re not
 that cruel.</p></div>
 <div class="paragraph"><p>Do you believe it would be a good idea for Amazon or Facebook to
 re-write their UI in Java? Of course not unless they want to loose half
@@ -1183,16 +1185,16 @@ of their customers who will be scared to death after seeing the message
 of the 20-step Java installer asking for the access to the internals of
 their computer. Each author of this book is a Java developer, and we
 love using Java… on the server side. But when it comes to the consumer
-facing Web applications it’s just not there yet.</p></div>
-<div class="paragraph"><p>So what’s the bottom line? We have to learn how to develop Web
-application that won’t require installing any new software on the user’s
-machines. Today it’s DHTML or, let’s stick to the modern terminology,
+facing Web applications it&#8217;s just not there yet.</p></div>
+<div class="paragraph"><p>So what&#8217;s the bottom line? We have to learn how to develop Web
+application that won&#8217;t require installing any new software on the user&#8217;s
+machines. Today it&#8217;s DHTML or, let&#8217;s stick to the modern terminology,
 HTML5 stack.</p></div>
 <div class="paragraph"><p>In the unfortunate event of needing to support both new and old HTML and
 CSS implementations you can use <a href="http://html5boilerplate.com/">HTML5
 Boilerplate</a> that is not a framework, but a template for creating a new
 HTML project that will support HTML5 and CSS3 elements but will work
-event in the hostile environments of the older browsers. It’s like
+event in the hostile environments of the older browsers. It&#8217;s like
 broadcasting a TV show in HD, but letting the cavemen with the 50-year
 old black-and-white tubes watching it too.</p></div>
 <div class="paragraph"><p>HTML Boilerplate comes is a really simple way to start your project
@@ -1281,7 +1283,7 @@ started with HTML5 Boilerplate</a> on Github.</td>
 <div class="sectionbody">
 <div class="paragraph"><p>This chapter is dedicated to the JavaScript programming language. Our
 challenging goal is &#8220;From Zero to Hero in 50 pages&#8221;. While in the
-future chapters you’ll see how JavaScript frameworks can greatly
+future chapters you&#8217;ll see how JavaScript frameworks can greatly
 minimize the amount of the JavaScript code that you need to write
 manually, you still need to understand the language itself. At least you
 should be able to read JavaScript code. This chapter starts with basics
@@ -1293,7 +1295,7 @@ or &#8220;JavaScript: The Definite Guide&#8221;, Sixth Edition by David Flanagan
 Besides the JavaScript coverage this chapter includes an important
 section on the tools (IDEs, debuggers, Web inspectors et al) that will
 make your development process more productive. By the end of this
-chapter we’ll create the first implementation of the Web site Save a
+chapter we&#8217;ll create the first implementation of the Web site Save a
 Child designed in Chapter 2. This version of the Web site will include
 some JavaScript code. All the data for this this Web site will be stored
 in a plain text format in local files.</p></div>
@@ -1310,14 +1312,14 @@ ECMAScript standard so that other vendors could create their
 implementation of this standard. ActionScript is a good example of
 another popular dialect of ECMAScript.</p></div>
 <div class="paragraph"><p>To learn more about the history of JavaScript from the source watch the
-Brendan Eich’s presentation
+Brendan Eich&#8217;s presentation
 <a href="http://www.youtube.com/watch?v=Rj49rmc01Hs">&#8220;JavaScript at 17&#8221;</a> at
-O’Reilly’s conference Fluent 2012. Although the vast majority of today’s
+O&#8217;Reilly&#8217;s conference Fluent 2012. Although the vast majority of today&#8217;s
 JavaScript code is being executed by the Web browsers some third-party
-tools also include JavaScript engines and Google’s V8 engine is a place
+tools also include JavaScript engines and Google&#8217;s V8 engine is a place
 to run JavaScript on the server. The server-side JavaScript framework
 node.js is getting popularity. Using the same programming language on
-the client and the server is the main selling point of node.js. Oracle’s
+the client and the server is the main selling point of node.js. Oracle&#8217;s
 Java SE 8 will include the new JavaScript engine Nashorn that can run on
 both – the server and the client computers.</p></div>
 <div class="paragraph"><p>In the 90th, JavaScript was considered a second class language used
@@ -1326,18 +1328,18 @@ the techniques known as AJAX (described in Chapter 4) made a significant
 impact to the way Web pages were built allowing updating the information
 inside the Web page without the need to make a full page refresh. Even
 though AJAX saved JavaScript, the vendors of Web browsers were no eager
-to implement the latest specifications of ECMAScript. Browsers’
+to implement the latest specifications of ECMAScript. Browsers'
 incompatibility and lack of good development tools continued preventing
-JavaScript to become the language of choice for Web applications. Let’s
+JavaScript to become the language of choice for Web applications. Let&#8217;s
 not forget about the ubiquitous Flash Player – an excellent VM supported
 by all Web browsers. Rich Internet Applications written in ActionScript
 were compiled into the byte code and executed by Flash Player on the
-user’s machine.</p></div>
+user&#8217;s machine.</p></div>
 <div class="paragraph"><p>If AJAX saved JavaScript, then rapid proliferation of tablets and
 smartphones made it really hot. Mobile devices come with modern Web
 browsers and there is no need to make sure that your Web application
 will work in the 11 year old Internet Explorer 6. The fact that Flash
-Player won’t be supported in the mobile Web browsers is yet another
+Player won&#8217;t be supported in the mobile Web browsers is yet another
 reason to turn to JavaScript if your Web application has to be accessed
 from smartphones or tablets. The ECMASript, 5th Edition has been
 published in 2009 and is currently supported by most of the modern Web
@@ -1345,7 +1347,7 @@ browsers. If you are interested in discovering if specific features of
 ECMAScript 5 are supported by a particular Web browser, check the latest
 version of the <a href="http://kangax.github.com/es5-compat-table/#">ECMAScript 5
 compatibility table</a>. At the time of this writing it looks as follows
-(it’s a snapshot of the Chrome Browser v. 21):</p></div>
+(it&#8217;s a snapshot of the Chrome Browser v. 21):</p></div>
 <div class="paragraph"><p>JavaScript became the lowest common denominator available on thousands
 of different devices. Yes, the JavaScript engines are not 100%
 compatible on about 2500 devices that people use to login to Facebook,
@@ -1355,26 +1357,26 @@ spare you from worrying about this.</p></div>
 <div class="sect2">
 <h3 id="_javascript_basics">JavaScript Basics</h3>
 <div class="paragraph"><p>JavaScript is an interpreted language that arrives to the place of
-execution as text. If it’s a part of the Web page, the browser will load
+execution as text. If it&#8217;s a part of the Web page, the browser will load
 and execute the JavaScript code embedded between the tags <span class="monospaced">&lt;script&gt;</span> and
 <span class="monospaced">&lt;/script&gt;</span> or linked from external files. The modern browsers (except
 Internet Explorer 8 and older) will also automatically perform the Just
 In Time (JIT) compilation of the JavaScript into machine code.
 JavaScript was originally created for Web browsers, which were supposed
 to show/use whatever content has successfully arrived. What if an image
-has not arrived from the server? You’ll see a broken image icon. What if
-not all JavaScript code has arrived to the browser? Well, it’ll try to
+has not arrived from the server? You&#8217;ll see a broken image icon. What if
+not all JavaScript code has arrived to the browser? Well, it&#8217;ll try to
 execute whatever has arrived. The end users may appreciate such
 forgiveness, but the software developers should be ready to spend more
 time debugging runtime errors that could have been caught by compilers
 in other programming languages. JavaScript is a weakly typed language
-hence the developers don’t have a luxury of strong compiler’s help that
+hence the developers don&#8217;t have a luxury of strong compiler&#8217;s help that
 Java or C# developers enjoy. This is easily explainable. Imaging that if
 in Java or C# instead of declaring variables of specific data types
 everything would be of type Object and you could assign to it any value
 – a string, a number, or a custom object Person. This would
 substantially complicate the ability of the compiler to weed out all
-possible errors. You don’t need to declare variables in JavaScript –
+possible errors. You don&#8217;t need to declare variables in JavaScript –
 just assign a value and the JavaScript engine will figure out the proper
 type during the execution of your code. For example, the variable named
 girlfriend will have a data type of String:</p></div>
@@ -1382,7 +1384,7 @@ girlfriend will have a data type of String:</p></div>
 <div class="content monospaced">
 <pre>girlfriendName=“Mary”;</pre>
 </div></div>
-<div class="paragraph"><p>Since I haven’t use the keyword var in front of girlfriend this variable
+<div class="paragraph"><p>Since I haven&#8217;t use the keyword var in front of girlfriend this variable
 will have the global scope. Variables declared with var inside functions
 are local. Consider the following function declaration:</p></div>
 <div class="listingblock">
@@ -1399,12 +1401,12 @@ http://www.gnu.org/software/src-highlite -->
 <div class="paragraph"><p>The variables address and isMarried are visible only inside the function
 <span class="monospaced">addPersonalInfo()</span>. The variable age becomes global because of omission
 of the keyword var. The variable isMarried changes its type from Boolean
-to String during the execution and JavaScript engine won’t complain
-assuming that the programmer knows what she’s doing. So be ready for the
+to String during the execution and JavaScript engine won&#8217;t complain
+assuming that the programmer knows what she&#8217;s doing. So be ready for the
 run-time surprises and allocate a lot more time for testing comparing to
 compiled languages. Yet another moving part is the JavaScript engine
 where your code will run. Unless you are developing for strictly
-controlled enterprise environment you can’t assume that the end-user
+controlled enterprise environment you can&#8217;t assume that the end-user
 will have the same runtime as yours. This is yet another reason to test
 your code in multiple Web browsers.</p></div>
 </div>
@@ -1423,17 +1425,17 @@ sensitive help, and autocomplete too.</p></div>
 familiar with free and open source Eclipse IDE. In this case you can
 consider either use <a href="http://www.eclipse.org/downloads">Eclipse for Java EE
 developers</a> or <a href="http://aptana.com">Aptana Studio 3 IDE</a>. Aptana Studio is
-available free of charge. It’s Eclipse-based IDE for JavaScript
+available free of charge. It&#8217;s Eclipse-based IDE for JavaScript
 developers. Aptana Studio comes with embedded Web Server so you can test
 your JavaScript code without the need to start any additional software.
-In this and the following chapter we’ll use Aptana Studio IDE to
+In this and the following chapter we&#8217;ll use Aptana Studio IDE to
 illustrate the features of JavaScript and start working on the prototype
 of the Web application Save a Child.</p></div>
 <div class="paragraph"><p>For the real world development we recommend using a commercial
 <a href="http://www.jetbrains.com/webstorm">IDE WebStorm</a> from JetBrains. In
 addition to smart context sensitive help, auto-complete, and syntax
 highlighting it offers HTML5 templates, a code coverage feature for unit
-testing that identifies the code fragment that haven’t been tested. All
+testing that identifies the code fragment that haven&#8217;t been tested. All
 of the editors and IDEs listed here are either available for free or are
 priced in the area of $60 USD.Try them all and pick the one that best
 fits your coding habits.</p></div>
@@ -1444,8 +1446,8 @@ fits your coding habits.</p></div>
 <a href="http://aptana.com">http://aptana.com</a>. Start Aptana and customize the
 color theme of this IDE by clicking the rainbow-colored circle on its
 toolbar. Since the author of this book are accustomed to Eclise IDE we
-select the theme that’s called Eclipse. After the initial installed of
-Aptana you’ll see the message that on the left that reads &#8220;There are no
+select the theme that&#8217;s called Eclipse. After the initial installed of
+Aptana you&#8217;ll see the message that on the left that reads &#8220;There are no
 projects in your workspace. To get started, please create or import an
 existing one.&#8221; Just press the button Create Project located right under
 this message. You could have also created a new Web Project using the
@@ -1456,9 +1458,9 @@ File menu.</p></div>
 <div class="paragraph"><p>After learning all these facts and techniques about the language you
 might be eager to see «the real use of JavaScript» – manipulating HTML
 elements of Web pages, which most of the people use JavaScript for. This
-is correct, at least today. In this section we’ll be doing exactly this
+is correct, at least today. In this section we&#8217;ll be doing exactly this
 – applying JavaScript code to HTML elements.</p></div>
-<div class="paragraph"><p>First let’s consider the operations we need to be able to perform inside
+<div class="paragraph"><p>First let&#8217;s consider the operations we need to be able to perform inside
 the Web page: - Programmatically finding the required element by id,
 type, or a CSS class. - Changing styles of the elements (show, hide,
 apply fonts and colors et al.) - Processing events that may happen to
@@ -1466,10 +1468,10 @@ HTML elements (click, mouseover et al.) - Dynamically adding or removing
 HTML elements from the page or changing their contents - Communicating
 with the server side, e.g. form submission or making AJAX requests to
 request some data from the server</p></div>
-<div class="paragraph"><p>You’ll need to understand how to perform these operations from
-JavaScript. Even if you’ll be using one of the popular frameworks,
-you’ll be performing the same operations applying the syntax prescribed
-by your framework of choice. So let’s get started.</p></div>
+<div class="paragraph"><p>You&#8217;ll need to understand how to perform these operations from
+JavaScript. Even if you&#8217;ll be using one of the popular frameworks,
+you&#8217;ll be performing the same operations applying the syntax prescribed
+by your framework of choice. So let&#8217;s get started.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_styling_web_pages_with_css">Styling Web Pages with CSS</h3>
@@ -1478,7 +1480,7 @@ CSS specifications reached the level of Recommendation by W3C: CSS Level
 1, 2, and 2.1. The latest CSS Level 3 (a.k.a. CSS3) adds new features to
 CSS 2.1 module by module, which are listed at
 <a href="http://www.w3.org/Style/CSS/current-work">http://www.w3.org/Style/CSS/current-work</a>.
-In this book we’ll be using only the modules Fonts, Media Queries, and
+In this book we&#8217;ll be using only the modules Fonts, Media Queries, and
 Backgrounds and Borders. Brief CSS tutorial and reference is located at
 <a href="http://www.w3schools.com/cssref/default.asp">http://www.w3schools.com/cssref/default.asp</a></p></div>
 <div class="paragraph"><p>You can include CSS into a Web page either by linking to separate files
@@ -1493,7 +1495,7 @@ http://www.gnu.org/software/src-highlite -->
 <pre><tt><span style="font-weight: bold"><span style="color: #0000FF">&lt;link</span></span> <span style="color: #009900">rel</span><span style="color: #990000">=</span><span style="color: #FF0000">"stylesheet"</span> <span style="color: #009900">type</span><span style="color: #990000">=</span><span style="color: #FF0000">"text/css"</span> <span style="color: #009900">href</span><span style="color: #990000">=</span><span style="color: #FF0000">"css/mystyles.css"</span> <span style="color: #009900">media</span><span style="color: #990000">=</span><span style="color: #FF0000">"all"</span><span style="font-weight: bold"><span style="color: #0000FF">&gt;</span></span></tt></pre></div></div>
 <div class="paragraph"><p>The <span class="monospaced">&lt;link&gt;</span> tag allows specifying the media where specific css file has
 to be used. For example, you can have one CSS file for smartphones and
-another one for tablets. We’ll discuss this in detail in the section on
+another one for tablets. We&#8217;ll discuss this in detail in the section on
 media queries in Chapter 11.</p></div>
 <div class="paragraph"><p>You should put this tag in the
 section of your HTML before any JavaScript code to make sure that they
@@ -1508,7 +1510,7 @@ http://www.gnu.org/software/src-highlite -->
 <pre><tt><span style="font-weight: bold"><span style="color: #0000FF">&lt;style&gt;</span></span>
    @import url <span style="color: #990000">(</span>css<span style="color: #990000">/</span>contactus<span style="color: #993399">.css</span><span style="color: #990000">)</span>
 <span style="font-weight: bold"><span style="color: #0000FF">&lt;/style&gt;</span></span></tt></pre></div></div>
-<div class="paragraph"><p>What’s the best way of including CSS in HTML? From one hand, keeping CSS
+<div class="paragraph"><p>What&#8217;s the best way of including CSS in HTML? From one hand, keeping CSS
 in multiple files separately form HTML and JavaScript makes the code
 more readable and reusable. On the other hand, when if your Web site has
 consists of many files, the Web browser will have to make multiple
@@ -1521,24 +1523,24 @@ responsiveness of your Web application.</p></div>
 <h2 id="_mocking_up_the_application_save_a_child">Mocking Up the Application «Save a Child»</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>The time has come to start working on our Web application Save a Child
-that will supports donations to ill children. In this chapter we’ll take
+that will supports donations to ill children. In this chapter we&#8217;ll take
 care of the Web design and will create the first prototype of the Save a
 Child site.</p></div>
 <div class="sect2">
 <h3 id="_introducing_balsamic_mockups">Introducing Balsamic Mockups</h3>
-<div class="paragraph"><p>First, we’ll create a mockup (a.k.a. wireframes) - a set of images
+<div class="paragraph"><p>First, we&#8217;ll create a mockup (a.k.a. wireframes) - a set of images
 depicting various views of our Save a Child application. The images may
 contain comments in the form of callouts that briefly explain what
 should change in a view if a user will make a certain action,
 e.g. clicks on the button. You can also think of a UI of any application
-as a set of states and the user’s action result in your application’s
+as a set of states and the user&#8217;s action result in your application&#8217;s
 transition from one state to the other. As nerds and mathematicians say
 &#8220;UI of your application is a
 <a href="http://en.wikipedia.org/wiki/State_machine">finite state machine</a>&#8221;,
 which at any given point of time is in one of the finite number of
 states, for example, in the view state Donate Form.</p></div>
 <div class="paragraph"><p>Visualize yourself sitting in a cafeteria and drawing sketches of your
-Web site on a napkin. Well, we’ll use an electronic napkin so to speak -
+Web site on a napkin. Well, we&#8217;ll use an electronic napkin so to speak -
 an excellent prototyping tool called <a href="http://balsamiq.com">Balsamic
 Mockups</a>. This is an easy to use program. It gives you a working area
 where you create a mockup of your future Web application by dragging and
@@ -5997,7 +5999,7 @@ depending by the qualifications of the designer. This can be a set of
 images representing different states of the UI with little callouts
 explaining the navigation of the application. If the Web designer is
 familiar with HTML and CSS, you may get a working prototype in the form
-of HTML and CSS files, and this is exactly what we’ll create by the end
+of HTML and CSS files, and this is exactly what we&#8217;ll create by the end
 of this chapter.</p></div>
 <div class="paragraph"><p>This is what the project owner said to our designer, The Save a Child
 Web site should allow people to make donations to the ill children. The
@@ -12373,7 +12375,7 @@ RK5CYII=">
 </span></p></div>
 <div class="paragraph"><p>Figure 3-3. The main view after clicking Donate Now. Take 1.</p></div>
 <div class="paragraph"><p>The project owner suggested that turning the video into a button may not
-be a the best solution. We shouldn’t forget that the main goal of this
+be a the best solution. We shouldn&#8217;t forget that the main goal of this
 application is collecting donation, so they decided to move the video
 player to the lower portion of the window. The next version of the
 mockup looks as shown in Figure 3-4 and 3-5. The latter shows different
@@ -12386,7 +12388,7 @@ Successfully Logged On</p></div>
 project owner will review them and can return them back with some
 comments. Figure 3-5 illustrates selected views from authorization. Due
 to some miscommunication the Web designer assumed that unless the user
-log on to the application, she won’t be able to see Save a Child. This
+log on to the application, she won&#8217;t be able to see Save a Child. This
 is clearly wrong as the process of making donations has to be as easy as
 possible, and forcing the donor to log on may result in abandoning Save
 a Child application by some people.</p></div>
@@ -16074,9 +16076,9 @@ BAwBQ8AQMAQMAUPgUAT+P26fX8Srl7N5AAAAAElFTkSuQmCC">
 <div class="sect2">
 <h3 id="_from_the_mockup_to_html_prototype">From the Mockup to HTML Prototype</h3>
 <div class="paragraph"><p>We are lucky - our Web designer knows HTML and CSS. In this section
-we’ll turn the still mockups into the first HTML prototype, which will
+we&#8217;ll turn the still mockups into the first HTML prototype, which will
 use only hard-coded data but the layout of the site will be done in CSS
-and we’ll use HTML5 markup.</p></div>
+and we&#8217;ll use HTML5 markup.</p></div>
 <div class="quoteblock">
 <div class="content">
 <div class="paragraph"><p>&#8220;In this book we assume that the users of our Save a Child site work
@@ -16092,9 +16094,9 @@ browsers.&#8221;</p></div>
 </div>
 <div class="sect2">
 <h3 id="_adding_styles_with_css">Adding Styles With CSS</h3>
-<div class="paragraph"><p>We’ve been using some CSS in short code samples from Chapter 2, and now
-let’s apply styles to make Save a Child look as in the mockup.We’ve been
-using some CSS in short code samples from Chapter 2, and now let’s apply
+<div class="paragraph"><p>We&#8217;ve been using some CSS in short code samples from Chapter 2, and now
+let&#8217;s apply styles to make Save a Child look as in the mockup.We&#8217;ve been
+using some CSS in short code samples from Chapter 2, and now let&#8217;s apply
 styles to make Save a Child look as in the mockup.</p></div>
 </div>
 </div>
@@ -16129,9 +16131,9 @@ enough to make WebSocket seriously interesting…</p></div>
 &#8212; http://ietf.org/mail-archive/web/hybi/current/msg00784.html
 </div></div>
 <div class="paragraph"><p>This chapter will introduce the WebSocket API, which is a part of HTML5
-spec. We’ll pick one of the data flow in Save a Child site and replace
+spec. We&#8217;ll pick one of the data flow in Save a Child site and replace
 HTTP communication with WebSockets protocol. Using the monitoring tool
-we’ll show the performance bandwidth usage benefits that WebSockets
+we&#8217;ll show the performance bandwidth usage benefits that WebSockets
 protocol brings to the Web. This chapter will be based on
 <a href="http://www.youtube.com/watch?v=vP6MfPnE1c0">this WebSockets
 presentation</a>.</p></div>
@@ -16143,10 +16145,10 @@ presentation</a>.</p></div>
 <div class="paragraph"><p>The chapter starts with a brief overview of different approaches to
 making the Web site to the mobile space. One of the approaches is having
 only one Web site for all devices. This approach is is called Responsive
-Design, and we’ll modify the design of the Save a Child site to
+Design, and we&#8217;ll modify the design of the Save a Child site to
 introduce different layouts for the desktop, tablet, and smartphone
 devices. By the end of this chapter the site Save a Child will
-automatically change its layout based on the user’s device without the
+automatically change its layout based on the user&#8217;s device without the
 losing any functionality.</p></div>
 <div class="sect2">
 <h3 id="_why_having_one_code_base_is_better">Why Having One Code Base is Better</h3>
@@ -16154,11 +16156,11 @@ losing any functionality.</p></div>
 application - one for the desktop and another for mobile devices - the
 Web server can be configured to perform redirection to the appropriate
 code. Web servers can do it based on the value of the USER_AGENT
-attribute of the HTTP request’s header. For example, the mobile Web
+attribute of the HTTP request&#8217;s header. For example, the mobile Web
 browsers of our Save a Child application would get the content from the
 URL m.saveachild.org while the desktop users would get it from
 saveachild.org. You can program such USER_AGENT based redirection in
-your JavaScript too, but it’s better to do this on the server level.</p></div>
+your JavaScript too, but it&#8217;s better to do this on the server level.</p></div>
 <div class="paragraph"><p>We prefer to have to use responsive design and have only one location
 for the code for both desktop and mobile applications. There is another
 practical reason for not having different versions of the code. Most
@@ -16166,22 +16168,22 @@ likely your Web application will use some third-party JavaScript
 framework. At some point you may run into a bug and need to upgrade the
 mobile version to use the latest version of such frameworks, say
 jQuery.But the desktop version works just fine. In case of having two
-separate versions of the application you’ll have to either upgrade
+separate versions of the application you&#8217;ll have to either upgrade
 jQuery and thoroughly test both mobile and desktop versions of Save a
 Child, or live with two different versions of jQuery. In case of
 responsive design, there is only one code base and one upgrade of jQuery
 to be made.</p></div>
-<div class="paragraph"><p>Let’s spend a little more time discussing the USER_AGENT attribute.</p></div>
+<div class="paragraph"><p>Let&#8217;s spend a little more time discussing the USER_AGENT attribute.</p></div>
 <div class="paragraph"><p>There is a Web site called useragentstring.com. It lists hundreds of
 strings representing possible content of the USER_AGENT attribute for a
-plethora of mobile devices. It’s impossible to create different layout
+plethora of mobile devices. It&#8217;s impossible to create different layout
 of your Web application for each of them.</p></div>
 <div class="paragraph"><p>By the way, have you ever tried to share the link of the Web site from
-your iPhone? It’ so easy! Just press the button and enter the email of
+your iPhone? It' so easy! Just press the button and enter the email of
 the person to share the site with. Got to cnn.com on your iPhone and
 share this link with someone. That person will receive the link
-m.cnn.com, and if she’s visit this site from the desktop it won’t look
-nice as it’s a stripped version that was intended to be watched on the
+m.cnn.com, and if she&#8217;s visit this site from the desktop it won&#8217;t look
+nice as it&#8217;s a stripped version that was intended to be watched on the
 mobile phone.</p></div>
 </div>
 <div class="sect2">
@@ -16194,7 +16196,7 @@ mobile phone.</p></div>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-10-17 12:58:15 EDT
+Last updated 2012-10-17 16:00:57 EDT
 </div>
 </div>
 </body>
