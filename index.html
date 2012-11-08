@@ -845,7 +845,7 @@ asciidoc.install(2);
 <h2 id="_introduction">Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>This is a home of the upcoming book «Enterprise Web Development. From Desktop to Mobile». The authors of this book are Yakov Fain, Victor Rasputnis, Viktor Gamov, and Anatole Tartakovsky. They all work for <a href="http://www.faratasystems.com">Farata Systems</a>.</p></div>
-<div class="paragraph"><p>This book will be printed in the Summer of 2013, but you can enjoy read the current manuscript enterprisewebbook.com. The sources of this book are located at <a href="https://github.com/Farata/EnterpriseWebBook">Github</a>.</p></div>
+<div class="paragraph"><p>This book will be printed in the Summer of 2013, but you can <strong><span class="line-through">enjoy</span></strong> read the current manuscript enterprisewebbook.com. The sources of this book are located at <a href="https://github.com/Farata/EnterpriseWebBook">Github</a>.</p></div>
 <div class="paragraph"><p>The book is released under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license</a> meaning you can both get a copy of the book for free or help to further improve it. This book will be printed and available for purchase via <a href="http://oreilly.com">O’Reilly Media</a>. Readers will have an option of purchasing this book in a number of digital formats.</p></div>
 <div class="sect2">
 <h3 id="_what_8217_s_an_enterprise_web_application">What&#8217;s an Enterprise Web Application?</h3>
@@ -36860,7 +36860,7 @@ qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC">
 </div>
 </div>
 <div class="sect2">
-<h3 id="_javascript_functions_and_objects_gentle_introduction">JavaScript Functions and Objects. Gentle Introduction</h3>
+<h3 id="_javascript_functions_gentle_introduction">JavaScript Functions. Gentle Introduction</h3>
 <div class="paragraph"><p>Now comes the chicken or the egg dilemma. What should we explain first - functions or objects? Understanding of objects is needed for some of the function code samples and visa versa. We&#8217;ll start with simple function use cases, but will be switching to objects as needed.</p></div>
 <div class="paragraph"><p>Many of the readers can have experience with object-oriented languages like Java or C#, where classes can include <em>methods</em> implementing required functionality. Then these methods can be invoked with or without instantiation of the objects. If a JavaScript object includes functions they are also called <em>methods</em>. But JavaScript functions don&#8217;t have to belong to an object. You can just declare a function and invoke it. Just like this:</p></div>
 <div class="listingblock">
@@ -36896,6 +36896,174 @@ http://www.gnu.org/software/src-highlite -->
 <span style="font-style: italic"><span style="color: #9A1900">//Function invocation</span></span>
 <span style="font-weight: bold"><span style="color: #0000FF">var</span></span> myTax<span style="color: #990000">=</span><span style="font-weight: bold"><span style="color: #000000">doTax</span></span><span style="color: #990000">(</span><span style="color: #993399">50000</span><span style="color: #990000">,</span><span style="color: #993399">2</span><span style="color: #990000">);</span></tt></pre></div></div>
 <div class="paragraph"><p>The <span class="monospaced">function</span> keyword is being used in the expression - we assign the anonymous function to the variable <span class="monospaced">doTax</span>. After this assignment the text of the function is assigned to the variable <span class="monospaced">doTax</span>. It&#8217;s important to understand that even though the code of this anonymous function ends with <span class="monospaced">return tax;</span> actually, the tax calculation and return of its value is not happening until the <span class="monospaced">doTax()</span> is invoked. Now the function is evaluated and the variable <span class="monospaced">myTax</span> will get the returned value.</p></div>
+<div class="paragraph"><p>Yet another example of a function expression is when it&#8217;s placed inside the <em>grouping operator</em> - parentheses as shown below:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.7
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="font-weight: bold"><span style="color: #000000">calcTax</span></span> <span style="color: #990000">(</span>income<span style="color: #990000">,</span> dependents<span style="color: #990000">)</span><span style="color: #FF0000">{</span>
+   <span style="font-style: italic"><span style="color: #9A1900">// Do stuff here</span></span>
+<span style="color: #FF0000">}</span><span style="color: #990000">);</span></tt></pre></div></div>
+<div class="paragraph"><p>Another interesting concept of JavaScript is self-executing functions. Adding an extra pair of parentheses will cause the function expression located in the first set of parentheses to be executed right away.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.7
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">function</span></span> <span style="font-weight: bold"><span style="color: #000000">calcTax</span></span> <span style="color: #990000">(</span>income<span style="color: #990000">,</span> dependents<span style="color: #990000">)</span><span style="color: #FF0000">{</span>
+   <span style="font-style: italic"><span style="color: #9A1900">// Do stuff here</span></span>
+<span style="color: #FF0000">}</span><span style="color: #990000">)();</span></tt></pre></div></div>
+<div class="paragraph"><p>The first set of parentheses hides its internal code from the outside world creating a . Try to invoke <span class="monospaced">calcTax(50000,2)</span> after this sealed code and you&#8217;ll get an error - "calcTax is not defined". There is a way to expose some of the internal content of such a closure and you&#8217;ll see it later in this chapter.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_javascript_objects_gentle_introduction">JavaScript Objects. Gentle Introduction</h3>
+<div class="paragraph"><p>JavaScript objects are simply unordered collections of properties. You can assign new or delete existing properties from the objects during the runtime whenever you please. In classical object oriented languages there are <em>classes</em> and there are <em>objects</em>. For example, based on one Java a class you can create  multiple instances of its objects.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Note" src="data:image/png;base64,
+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">
+</td>
+<td class="content">The ECMAScript 6 specification will include classes too, but since it&#8217;s a work in progress we won&#8217;t consider them as something useful in the today&#8217;s world.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>In JavaScript you can create objects using one of the following methods:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Using object literals
+</p>
+</li>
+<li>
+<p>
+Using <span class="monospaced">new Object()</span> notation
+</p>
+</li>
+<li>
+<p>
+Using <span class="monospaced">Object.create()</span>
+</p>
+</li>
+<li>
+<p>
+Using <em>constructor functions</em> and a <span class="monospaced">new</span> operator.
+</p>
+</li>
+</ul></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img alt="Note" src="data:image/png;base64,
+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">
+</td>
+<td class="content">In JavaScript everything is an <span class="monospaced">Object</span>. Think of <span class="monospaced">Object</span> as of a root of of the hierarchy of all objects used in your program. All your custom objects are descendants from <span class="monospaced">Object</span>.</td>
+</tr></table>
+</div>
+<div class="sect3">
+<h4 id="_object_literals">Object Literals</h4>
+<div class="paragraph"><p>The easiest way to create a JavaScript object is by using the object literal notation. The code sample below starts with a creation of an empty object. The second line creates an object with one property <span class="monospaced">salary</span> and assigns the value of 50000 to it. Finally, the object person is created and it has three properties: <span class="monospaced">lastName</span>, <span class="monospaced">firstName</span>, and <span class="monospaced">age</span>. Note that in object literal notation the values of these properties are specify using colon.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.7
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">var</span></span> t <span style="color: #990000">=</span> <span style="color: #FF0000">{}</span>             <span style="font-style: italic"><span style="color: #9A1900">// create an instance of an empty object</span></span>
+
+<span style="font-weight: bold"><span style="color: #0000FF">var</span></span> a <span style="color: #990000">=</span> <span style="color: #FF0000">{</span>salary<span style="color: #990000">:</span> <span style="color: #993399">50000</span><span style="color: #FF0000">}</span><span style="color: #990000">;</span> <span style="font-style: italic"><span style="color: #9A1900">// an instance with one property</span></span>
+
+<span style="font-style: italic"><span style="color: #9A1900">// Store the data about Julia Roberts</span></span>
+<span style="font-weight: bold"><span style="color: #0000FF">var</span></span> person <span style="color: #990000">=</span> <span style="color: #FF0000">{</span> lastName<span style="color: #990000">:</span> ”Roberts”<span style="color: #990000">,</span>
+               firstName<span style="color: #990000">:</span> ”Julia”<span style="color: #990000">,</span>
+                     age<span style="color: #990000">:</span> <span style="color: #993399">42</span>
+             <span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_javascript_in_the_web_browser">JavaScript in the Web Browser</h3>
@@ -36915,7 +37083,7 @@ Changing styles of the elements (show, hide, apply fonts and colors et al.)
 </li>
 <li>
 <p>
-Processing events that may happen to HTML elements (click, mouseover et al.)
+Processing events that may happen to HTML elements (<span class="monospaced">click</span>, <span class="monospaced">mouseover</span> et al.)
 </p>
 </li>
 <li>
@@ -36925,8 +37093,7 @@ Dynamically adding or removing HTML elements from the page or changing their con
 </li>
 <li>
 <p>
-Communicating with the server side, e.g. form submission or making AJAX requests to
-request some data from the server
+Communicating with the server side, e.g. form submission or making AJAX requests for some data from the server
 </p>
 </li>
 </ul></div>
@@ -52055,7 +52222,7 @@ mobile phone.</p></div>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-11-07 21:14:54 EST
+Last updated 2012-11-08 10:16:42 EST
 </div>
 </div>
 </body>
