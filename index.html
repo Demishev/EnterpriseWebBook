@@ -36862,7 +36862,7 @@ qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC">
 <div class="sect2">
 <h3 id="_javascript_functions_gentle_introduction">JavaScript Functions. Gentle Introduction</h3>
 <div class="paragraph"><p>Now comes the chicken or the egg dilemma. What should we explain first - functions or objects? Understanding of objects is needed for some of the function code samples and visa versa. We&#8217;ll start with simple function use cases, but will be switching to objects as needed.</p></div>
-<div class="paragraph"><p>Many of the readers can have experience with object-oriented languages like Java or C#, where classes can include <em>methods</em> implementing required functionality. Then these methods can be invoked with or without instantiation of the objects. If a JavaScript object includes functions they are also called <em>methods</em>. But JavaScript functions don&#8217;t have to belong to an object. You can just declare a function and invoke it. Just like this:</p></div>
+<div class="paragraph"><p>Many of the readers can have experience with object-oriented languages like Java or C#, where classes can include <em>methods</em> implementing required functionality. Then these methods can be invoked with or without instantiation of the objects. If a JavaScript object includes functions they are called <em>methods</em>. But JavaScript functions don&#8217;t have to belong to an object. You can just declare a function and invoke it. Just like this:</p></div>
 <div class="listingblock">
 <div class="content"><!-- Generator: GNU source-highlight 3.1.7
 by Lorenzo Bettini
@@ -37267,13 +37267,19 @@ http://www.gnu.org/software/src-highlite -->
 
 p<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">makeAppointment</span></span><span style="color: #990000">();</span></tt></pre></div></div>
 </div>
+<div class="sect4">
+<h5 id="_ss">ss</h5>
+</div>
+<div class="sect4">
+<h5 id="_creating_objects_based_on_other_objects">Creating Objects Based on Other Objects</h5>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_javascript_and_html_elements">JavaScript and HTML Elements</h3>
 <div class="paragraph"><p>After learning all these facts and techniques about the language you might be eager to see "the real use of JavaScript" – manipulating HTML elements of Web pages, which most of the people use JavaScript for. This
 is correct, at least today. In this section we&#8217;ll be doing exactly this – applying JavaScript code to HTML elements.</p></div>
-<div class="paragraph"><p>First let&#8217;s consider the operations we need to be able to perform inside the Web page:</p></div>
+<div class="paragraph"><p>First let&#8217;s consider the operations your application needs to be able to perform inside the Web page:</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -37301,8 +37307,7 @@ Communicating with the server side, e.g. form submission or making AJAX requests
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p>You’ll need to understand how to perform these operations from JavaScript. Even if you’ll be using one of the popular frameworks, you&#8217;ll be performing the same operations applying the syntax prescribed
-by your framework of choice. So let&#8217;s get started.</p></div>
+<div class="paragraph"><p>You need to understand how to perform these operations from JavaScript. Even if you’ll be using one of the popular frameworks, you&#8217;ll be performing the same operations applying the syntax prescribed by your framework of choice. So let&#8217;s get started.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_styling_web_pages_with_css">Styling Web Pages with CSS</h3>
@@ -51927,7 +51932,7 @@ using selected test framework.</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_replacing_http_with_websockets">Replacing HTTP with WebSockets</h2>
+<h2 id="_chapter_8_replacing_http_with_websockets">Chapter 8. Replacing HTTP with WebSockets</h2>
 <div class="sectionbody">
 <div class="quoteblock">
 <div class="content">
@@ -51936,41 +51941,48 @@ using selected test framework.</p></div>
 <div class="attribution">
 &#8212; http://ietf.org/mail-archive/web/hybi/current/msg00784.html
 </div></div>
-<div class="paragraph"><p>This chapter starts with introducing of existing "legacy" options for creating interactive Web applications. After that we&#8217;re going to introduce Server-Sent Events and WebSockets, which are included in HTML5 specification.</p></div>
-<div class="paragraph"><p>We&#8217;re going to implements the fund-raising event monitoring functionality and interactive auction for Save Sick Child application using Websockets and  Server-Sent Events. Using the monitoring tool we&#8217;ll show the performance bandwidth usage benefits that WebSockets protocol brings to the Web.</p></div>
-<div class="paragraph"><p>Will use <a href="http://java.net/projects/tyrus">Project «Tyrus»</a> with <a href="http://dlc.sun.com.edgesuite.net/glassfish/4.0/promoted/">latest Glassfish builds</a> for the server side Websocket implementation.</p></div>
-<div class="paragraph"><p>Show the server-side data push with Server-Sent Events and Websockets. Compare each other.
-Look at <a href="http://socket.io/">Socket.IO</a> library. Compare the data throughput with the HTTP data push demonstrated in Chapter 4.</p></div>
+<div class="paragraph"><p>This chapter starts with introducing of existing "legacy" options for creating interactive Web applications. After that we&#8217;re going to introduce Server-Sent Events (SSE) and WebSockets, which are included in HTML5 specification.</p></div>
+<div class="paragraph"><p>We&#8217;re going to implement monitoring of the fund-raising events and an interactive auction for our Save Sick Child application using Websockets and  Server-Sent Events. We&#8217;ll use Wireshark, a network monitoring tool, to see benefits of using WebSockets protocol.</p></div>
+<div class="paragraph"><p>All server-side functionality supporting this chapter is written in Java, using the <a href="http://java.net/projects/tyrus">Project «Tyrus»</a> with <a href="http://dlc.sun.com.edgesuite.net/glassfish/4.0/promoted/">latest Glassfish builds</a>. If you don&#8217;t know Java, just treat this server side setup as a service that supports WebSockets. For Java developers interested in diving into the server-side, we&#8217;ll provide the source code and brief comments as a part of the code samples that come with this book.</p></div>
+<div class="paragraph"><p>TODO: Show the server-side data push with Server-Sent Events and WebSockets. Compare them.
+Do a brief overview of the <a href="http://socket.io/">Socket.IO</a> library. Comparing sending data using WebSockets data throughput with the HTTP data push will be demonstrated in Chapter 4.</p></div>
 <div class="sect2">
-<h3 id="_legacy_web_options_for_realtime_applications">Legacy Web Options for Realtime Applications</h3>
-<div class="paragraph"><p>HTTP protocol is the lingua franca of today&#8217;s Web  applications, where client-server communications are based on request-response paradigm. On the low level, Web browsers make TCP/IP connection for each and every HTTP request-response session.  And every time when we need to send data to server and get response back the browser re-establish the TCP/IP connection. So to implement interactiveness in your application currently, there are 3 basic options that developer has to use today to satisfy the real-time client-server communication requirements. Basically, that options provide hacks on top of half-duplex HTTP protocol to simulate real-time behaviour. Lets discuss each of them.</p></div>
+<h3 id="_near_realtime_applications_with_http">Near Realtime Applications With HTTP</h3>
+<div class="paragraph"><p>The HTTP protocol is the lingua franca of today&#8217;s Web  applications, where client-server communications are based on the request-response paradigm. On the low level, Web browsers establish a TCP/IP connection for each HTTP request-response session.  Every time when the browser needs to send data to server and get response back the browser re-establish the TCP/IP connection. So to implement interactiveness in your application currently, there are 3 basic options that developer has to use today to satisfy the real-time client-server communication requirements. Basically, that options provide hacks on top of half-duplex HTTP protocol to simulate real-time behavior. Lets discuss each of them.</p></div>
 <div class="sect3">
-<h4 id="_polling_aka_short_polling">Polling aka Short Polling</h4>
-<div class="paragraph"><p>With polling, your client code sends request to the server every X seconds The response is «empty» if there is no update. Refer to Figure 8-1
-Good illustration of this approach is you child seating on back seat of your car and asking "Are we where?" every minute. And you replying back  with empty response "No, we&#8217;re not". There is no actual interesting payload for your kid but he still receiving some "metadata". Same with short polling what uses HTTP response with verbose headers to send empty payload.</p></div>
-<div class="paragraph"><p><em>TBD short polling illustration</em></p></div>
+<h4 id="_short_polling">Short Polling</h4>
+<div class="paragraph"><p>With <em>short polling</em>, your client code sends requests to the server every N seconds. The response is «empty» if there is no update as illustrated in Figure 8-1. Visualize a child seating on back seat of your car and asking, "Are we where?" every minute. And you&#8217;re politely replying "Not just yet" - compare it to a empty server response. There is no valuable payload for this kid, but she&#8217;s still receiving some "metadata". HTTP polling does the same thing that generates verbose HTTP response headers sending empty payload. Let alone destructing the driver (think the server) from performing other responsibilities.</p></div>
+<div class="paragraph"><p><em>TODO polling illustration</em></p></div>
 <div class="paragraph"><p>Figure 8-1 Short polling</p></div>
 </div>
 <div class="sect3">
 <h4 id="_long_polling">Long Polling</h4>
-<div class="paragraph"><p>Long polling is similar to short polling: client sends request to server and instead of sending empty response (as in case with short polling), server not committing the response until information is available. When information gets available or after certain timeout server sends response and closes connection. And this process is repeated. On the contrary of short polling, long polling response is never empty.
-From HTTP specification perspective this "hack" is legit: long polling server behaviour indistinguishable from «slow» server.  That is why this technique also referred as "Hanging GET". Essentially, long polling is not server-push, but good emulation of it in situations where server push not available.</p></div>
-<div class="paragraph"><p><em>TBD long polling illustration</em></p></div>
+<div class="paragraph"><p><em>Long polling</em> starts similarly to short polling: the client sends HTTP request to server. But in this case instead of sending an empty response (as in case with short polling), server waits till the data for the client becomes available. If the requested information is not available after the specified timeout, the server server sends an empty response to the client and closes the connection.</p></div>
+<div class="paragraph"><p>We&#8217;ll give you one more analogy to compare short and long polling. Imagine a party at the top floor of a building equipped with a smart elevator that goes up every minute and opens the door just in case if one of the guests wants to go down to smoke a cigarette. If no one enters the elevator, it goes to the ground level and in 60 seconds goes up again. This is the short polling scenario. But if this elevator would go up, and waited till someone would actually decided to go down, then we could call it a long polling mode.</p></div>
+<div class="paragraph"><p>From HTTP specification perspective this "hack" is legit: long polling server behavior indistinguishable from «slow» server.  That is why this technique also referred as "Hanging GET". If you see an online auction that automatically modifies the prices as people bid on the item it looks as if the server pushes the data to you. But most likely, this functionality was implemented using long polling, which is not a real server-side data push, but its emulation.</p></div>
+<div class="paragraph"><p><em>TODO long polling illustration</em></p></div>
 <div class="paragraph"><p>Figure 8-2 Long polling</p></div>
+<div class="paragraph"><p>TODO Compare pros and cons of long vs short polling</p></div>
 </div>
 <div class="sect3">
 <h4 id="_http_streaming">HTTP Streaming</h4>
-<div class="paragraph"><p>Response to client never
-Client sends the request, server wait for events and  streams <span class="monospaced">multipart/chunked</span> response, and then wait for the events. The response is continually appended by server, usually with <span class="monospaced">&lt;script&gt;</span> what gets executed even after page DOM is ready.</p></div>
-<div class="paragraph"><p><em>TBD long polling illustration</em></p></div>
+<div class="qlist"><ol>
+<li>
+<p><em>
+Response to client never&#8230; Client sends the request, server wait for events and  streams <span class="monospaced">multipart/chunked</span> response, and then waits for the events. The response is continually appended by the server, usually with <span class="monospaced">&lt;script&gt;</span> what gets executed even after the HTTP DOM object is ready ??
+</em></p>
+<p>
+<em>TODO long polling illustration</em>
+</p>
+</li>
+</ol></div>
 <div class="paragraph"><p>Figure 8-3 HTTP streaming</p></div>
-<div class="paragraph"><p>Described above options could be used as fall-back transports for legacy browsers what doesn&#8217;t support modern HTML5 APIs - <em>Server-Sent Events</em> and <em>Websockets</em>.
-Lets see how major browsers developers, W3C and community trying to standardize these hacks for modern web.</p></div>
+<div class="paragraph"><p>Polling and streaming can be used as a fall-back for legacy browsers that don&#8217;t support the modern HTML5 APIs <em>Server-Sent Events</em> and <em>Websockets</em>.</p></div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_server_sent_events">Server-Sent Events</h3>
-<div class="paragraph"><p>Before we dive into Websocket lets briefly talk about standardised way to implement of server-side push client - Server-Sent Events. W3C introduces new browsers API and - <a href="http://dev.w3.org/html5/eventsource/"><span class="monospaced">eventSource</span></a> object. SSE allow to subscribe to remote server events in form of DOM events. Lets check how browser code looks like.</p></div>
+<div class="paragraph"><p>Before diving into Websockets protocol lets get familiar with the standardized way of implementing  Server-Sent Events. W3C introduces new browsers API and - <a href="http://dev.w3.org/html5/eventsource/"><span class="monospaced">EventSource</span></a> object. SSE allows to subscribe to remote server events arriving in the form of DOM events. The following code snippet shows the JavaScript code that can be used in a Web browser.</p></div>
 <div class="listingblock">
 <div class="content"><!-- Generator: GNU source-highlight 3.1.7
 by Lorenzo Bettini
@@ -52034,7 +52046,7 @@ gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
 YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
 dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
 ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII="></td><td>
-Create new EventSource. At this point browser will sends GET request to specified endpoint to register itself on the server
+Create new <span class="monospaced">EventSource</span> object. At this point the browser will sends the <span class="monospaced">GET</span> request to the specified server-side endpoint to register itself on the server
 </td></tr>
 <tr><td><img alt="2" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB7SURBVHja
 HY6hFcMwDEQ/NDQsNSwU9Apdo7Cw0CsIBoZmhKzQEQJLDQsFVclHpHu693W429Zr7bu541Pg3kCm
@@ -52043,7 +52055,7 @@ izp/VNk1YJ8vf6MAAABDdEVYdFNvZnR3YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8w
 MSBjcmlzdHlAbXlzdGljLmVzLmR1cG9udC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUAODBlYWU1
 MjljOTRhN2Y0N2RlY2NmYWRhMjhhY2I5ZGblb7ENAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30A
 AAAASUVORK5CYII="></td><td>
-Add handlers for open and error
+Add handlers for the <span class="monospaced">open</span> and <span class="monospaced">error</span> events
 </td></tr>
 <tr><td><img alt="3" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB4SURBVHja
 JU6rFcNADBM09BqBhl6ltDCwKxQeDOwKB7tGYGCoYaChK6cmlt7TD1W5uap/sgoVBnEXWBTSoOdx
@@ -52052,7 +52064,7 @@ Ubg1Y/zrjUwAAABDdEVYdFNvZnR3YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBj
 cmlzdHlAbXlzdGljLmVzLmR1cG9udC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUAODBiYmRhMjcy
 NmRkYWNlOGFiOGEwMWY1OWRlMmViZGII/Q51AAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAA
 SUVORK5CYII="></td><td>
-Handle messages <span class="monospaced">create</span> events
+Handle messages in <span class="monospaced">create</span> events
 </td></tr>
 <tr><td><img alt="4" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABzSURBVHja
 HY0hEoUwEEMjkZVYZGVlr1CJxCKRXKPyy28reyVsZeXKsCFi573ZzAQk+x5jaQ6gFQAxIA8XceEN
@@ -52061,34 +52073,50 @@ ZEN3DkOCH/TobUoSVuAYwSSLyzbvaHWVFJxUmmp+PF+twrLkuXzLwPmZ8+OjtH8KS6pGvuoGNo5b
 QG15c3RpYy5lcy5kdXBvbnQuY29tkbohuAAAACp0RVh0U2lnbmF0dXJlADlmODJmY2FjOWUwMzlj
 YmRiNzIzODBhNDU5MTMyNGY1gLv4dgAAAA50RVh0UGFnZQAxMngxMiswKzCEbbt9AAAAAElFTkSu
 QmCC"></td><td>
-Handle messages <span class="monospaced">update</span> events
+Handle messages in <span class="monospaced">update</span> events
 </td></tr>
 </table></div>
-<div class="paragraph"><p>Server-Sent Events is good candidate when data doesn&#8217;t need to be sent from the client to the server.
-In this example server sends 2 types of events <span class="monospaced">create</span> and <span class="monospaced">update</span> to notify subscribed clients about changing information about donation data so connected clients can monitor fundraising process. We can create as many named-events as we want.
-This technique still HTTP based but requires server support. In the server side combination of HTTP 1.1 Keep-alive connection and <span class="monospaced">text/event-stream</span> content type. Overhead minimal - instead of hundreds of bytes, server sends only tens of bytes.</p></div>
+<div class="paragraph"><p>Using SSE is a good technique for the use cases when the client doesn&#8217;t need to send the data to the server. In the above example the server sends two types of events <span class="monospaced">create</span> and <span class="monospaced">update</span> to notify subscribed clients about changing information about donation data so connected clients can monitor fund-raising process. We can create as many named-events as we want.
+This technique is still HTTP-based, and it requires the server&#8217;s support of a combination of HTTP 1.1 keep-alive connections and the <span class="monospaced">text/event-stream</span> content type. The overhead is minimal - instead of hundreds of bytes, the server sends only tens of bytes.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_introducing_websockets">Introducing Websockets</h3>
-<div class="sect3">
-<h4 id="_what_is_websockets">What is websockets?</h4>
-<div class="paragraph"><p>Websockets is bi-direction full-duplex framed socket-based protocol.</p></div>
-<div class="paragraph"><p>Idea behind Websocket is very simple:
-- establish socket connection connection between client and server using HTTP for initial handshake
-- switch communication protocol from HTTP to socket-based connection
-- send message to both directions
-- send messages independently. No request-response model. Both server and client can initiate data transmission which enables real server-push
-- as a consequence previous statement, each of stakeholders can initiate  disconnect.
-We will talk of each of this statements later when we introduce Websocket API</p></div>
-</div>
+<h3 id="_introducing_websockets">Introducing WebSockets</h3>
+<div class="paragraph"><p>WebSockets is a bi-directional full-duplex socket-based protocol. The idea behind WebSockets is straightforward:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Establish a socket connection between the client and the server using HTTP for the initial handshake.
+</p>
+</li>
+<li>
+<p>
+Switch the communication protocol from HTTP to direct socket-based protocol
+</p>
+</li>
+<li>
+<p>
+Send messages in both directions simultaneously (full duplex).
+</p>
+</li>
+<li>
+<p>
+Send messages independently. No request-response model. Both the server and the client can initiate data transmission which enables real server-push
+</p>
+</li>
+<li>
+<p>
+Accordungly, both the server and the client can initiate  disconnect.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>We will explain each of this statements later in this chapter while introducing WebSocket API.</p></div>
 <div class="sect3">
 <h4 id="_ietf_rfc_6455_protocol">IETF RFC 6455 Protocol</h4>
-<div class="paragraph"><p>Websocket introduces new protocol URI - <span class="monospaced">ws</span> and <span class="monospaced">wss</span> for secured web-socket connection.
-<em>TBD</em></p></div>
+<div class="paragraph"><p>WebSocket introduces the new protocol URI&#8217;s: <span class="monospaced">ws</span> and <span class="monospaced">wss</span> for secured web-socket connection.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_websocket_interface">Websocket Interface</h4>
-<div class="paragraph"><p>To define abstract Websocket interface expert group uses <a href="http://en.wikipedia.org/wiki/Interface_description_language">Interface Description Language</a></p></div>
+<h4 id="_websockets_interface">WebSockets Interface</h4>
+<div class="paragraph"><p>To define an abstract Web socket interface the expert group uses <a href="http://en.wikipedia.org/wiki/Interface_description_language">Interface Description Language</a></p></div>
 <div class="listingblock">
 <div class="content"><!-- Generator: GNU source-highlight 3.1.7
 by Lorenzo Bettini
@@ -52134,12 +52162,12 @@ gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
 YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
 dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
 ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII="></td><td>
-constructor is expecting mandatory endpoint URI and optional subprotocols name
+The constructor requires an endpoint URI and optional sub-protocols name.
 </td></tr>
 </table></div>
 <div class="sect4">
-<h5 id="_client_side_api">Client-side API</h5>
-<div class="paragraph"><p>Now, when we have basic idea of Websocket interface lets see how client side JavaScript API looks like.</p></div>
+<h5 id="_client_side_api">Client-Side API</h5>
+<div class="paragraph"><p>After the introduction of the WebSockets interface lets see how the client&#8217;s JavaScript can use it.</p></div>
 <div class="listingblock">
 <div class="content"><!-- Generator: GNU source-highlight 3.1.7
 by Lorenzo Bettini
@@ -52153,7 +52181,7 @@ gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
 YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
 dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
 ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII="></span></span>
-    console<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">log</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"WebSocket supported in your browser"</span><span style="color: #990000">);</span>   
+    console<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">log</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"WebSocket object is supported in your browser"</span><span style="color: #990000">);</span>   
 
     ws <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">new</span></span> <span style="font-weight: bold"><span style="color: #000000">WebSocket</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"ws://www.websockets.org/echo"</span><span style="color: #990000">);</span> <span style="font-style: italic"><span style="color: #9A1900">// <img alt="2" src="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB7SURBVHja
@@ -52205,7 +52233,7 @@ fQAAAABJRU5ErkJggg=="></span></span>
     <span style="color: #FF0000">}</span><span style="color: #990000">;</span>
 
 <span style="color: #FF0000">}</span> <span style="font-weight: bold"><span style="color: #0000FF">else</span></span> <span style="color: #FF0000">{</span>
-    <span style="font-weight: bold"><span style="color: #000000">output</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"WebSocket not supported in your browser"</span><span style="color: #990000">);</span>
+    <span style="font-weight: bold"><span style="color: #000000">output</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"WebSocket object is not supported in your browser"</span><span style="color: #990000">);</span>
 <span style="color: #FF0000">}</span></tt></pre></div></div>
 <div class="colist arabic"><table>
 <tr><td><img alt="1" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
@@ -52214,7 +52242,7 @@ gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
 YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
 dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
 ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII="></td><td>
-Check if Websocket object is available in browser
+Check if the <span class="monospaced">WebSocket</span> object is supported by the browser.
 </td></tr>
 <tr><td><img alt="2" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB7SURBVHja
 HY6hFcMwDEQ/NDQsNSwU9Apdo7Cw0CsIBoZmhKzQEQJLDQsFVclHpHu693W429Zr7bu541Pg3kCm
@@ -52223,7 +52251,7 @@ izp/VNk1YJ8vf6MAAABDdEVYdFNvZnR3YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8w
 MSBjcmlzdHlAbXlzdGljLmVzLmR1cG9udC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUAODBlYWU1
 MjljOTRhN2Y0N2RlY2NmYWRhMjhhY2I5ZGblb7ENAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30A
 AAAASUVORK5CYII="></td><td>
-Instantiate new Websocket object with passing endpoint URI as constructor parameter
+Instantiate the new <span class="monospaced">WebSocket</span> object with passing endpoint URI as constructor parameter.
 </td></tr>
 <tr><td><img alt="3" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB4SURBVHja
 JU6rFcNADBM09BqBhl6ltDCwKxQeDOwKB7tGYGCoYaChK6cmlt7TD1W5uap/sgoVBnEXWBTSoOdx
@@ -52232,7 +52260,7 @@ Ubg1Y/zrjUwAAABDdEVYdFNvZnR3YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBj
 cmlzdHlAbXlzdGljLmVzLmR1cG9udC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUAODBiYmRhMjcy
 NmRkYWNlOGFiOGEwMWY1OWRlMmViZGII/Q51AAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAA
 SUVORK5CYII="></td><td>
-Set event handlers for <span class="monospaced">open</span>, <span class="monospaced">message</span>, <span class="monospaced">clos</span> events
+Set event handlers for <span class="monospaced">open</span>, <span class="monospaced">message</span>, <span class="monospaced">close</span> events.
 </td></tr>
 <tr><td><img alt="4" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABzSURBVHja
 HY0hEoUwEEMjkZVYZGVlr1CJxCKRXKPyy28reyVsZeXKsCFi573ZzAQk+x5jaQ6gFQAxIA8XceEN
@@ -52241,7 +52269,7 @@ ZEN3DkOCH/TobUoSVuAYwSSLyzbvaHWVFJxUmmp+PF+twrLkuXzLwPmZ8+OjtH8KS6pGvuoGNo5b
 QG15c3RpYy5lcy5kdXBvbnQuY29tkbohuAAAACp0RVh0U2lnbmF0dXJlADlmODJmY2FjOWUwMzlj
 YmRiNzIzODBhNDU5MTMyNGY1gLv4dgAAAA50RVh0UGFnZQAxMngxMiswKzCEbbt9AAAAAElFTkSu
 QmCC"></td><td>
-<span class="monospaced">e.data</span> property of message event contains received from string message
+<span class="monospaced">e.data</span> property of the message event contains the received message.
 </td></tr>
 <tr><td><img alt="5" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB2SURBVHja
 FY6hEcQwDAQPChqGGhoaqgWX8PUYBhqGBn4rX0JooKDh/UlsZ3b2BJKXH8XPTYLh1lpt1h+BwxkR
@@ -52262,26 +52290,28 @@ fQAAAABJRU5ErkJggg=="></td><td>
 &#8230; and errors
 </td></tr>
 </table></div>
-<div class="paragraph"><p>Websocket handshake</p></div>
+</div>
+<div class="sect4">
+<h5 id="_websockets_handshake">WebSockets Handshake</h5>
 <div class="olist arabic"><ol class="arabic">
 <li>
 <p>
-client sends <span class="monospaced">GET</span>-request for protocol upgradein
+The client sends <span class="monospaced">GET</span> request for the protocol upgrade.
 </p>
 </li>
 <li>
 <p>
-server send response and confirms protocol upgrade
+The server senda a response confirming the protocol upgrade.
 </p>
 </li>
 <li>
 <p>
-<span class="monospaced">websocket.readyState==1</span>
+<span class="monospaced">websocket.readyState</span> becomes equal to 1.
 </p>
 </li>
 <li>
 <p>
-<span class="monospaced">websocket.onmessage</span> listener for incoming messages, <span class="monospaced">websocket.send()</span> to send data to server
+<span class="monospaced">websocket.onmessage</span> - define the listener for incoming messages, call <span class="monospaced">websocket.send()</span> to send data to server.
 </p>
 </li>
 </ol></div>
@@ -52336,25 +52366,25 @@ lmUMDQ1RKpXOm9EXvV6v1+tWr9eZnp5mZmaGWq1GjLHF62aiNZ+bnPfe45xrvTZzxMyYmZk56+LX
 zKjX661DvHOOJElIkoRSqYT3/vLvRlW15eHCa4VxzdvmpjZDfubzuXeb3vuzqCEixBhbo0NTkyS5
 PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==">
 </td>
-<td class="content">There is no limit to the number of established WebSocket connections a client can have with a single remote host.  Servers can refuse to accept connections from hosts/IP addresses with an excessive number of existing connections or disconnect resource- hogging connections when suffering high load.</td>
+<td class="content">There is no limit to the number of established WebSocket connections a client can have with a single remote host.  Servers can refuse to accept connections from hosts/IP addresses with an excessive number of existing connections or disconnect resource-hogging connections in case of high data load.</td>
 </tr></table>
 </div>
 </div></div>
-<div class="paragraph"><p><em>TBD</em>
-- websocket frame anatomy
-- heartbeating
+<div class="paragraph"><p><em>TODO</em>
+- The WebSocket frame anatomy
+- heartbeats
 - Client-side frameworks
 - Server-side API</p></div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_websocket_use_cases">Websocket Use Cases</h3>
+<h3 id="_websocket_use_cases">WebSocket Use Cases</h3>
 <div class="paragraph"><p>WebSockets really shine with following applications:</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-Live trading/sports ticker
+Live trading/auctions/sports notifications
 </p>
 </li>
 <li>
@@ -52369,19 +52399,19 @@ Chat applications
 </li>
 <li>
 <p>
-Multiplayer online games
+Multi-player online games
 </p>
 </li>
 <li>
 <p>
-Realtime updating social streams
+Real-time updates in social streams
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p>For "Save Sick Child" application we&#8217;re going to use Websockets to implement web-auction functionality. Using this web-auction contributors such individuals, businesses, charitable foundations can buy handmade crafts and arts made by children.</p></div>
+<div class="paragraph"><p>For the "Save Sick Child" application we&#8217;re going to use WebSockets to implement an online auction communication layer. The goal is to let individuals and businesses purchase hand-made crafts and arts made by the children. All proceeds will go to help sick children.</p></div>
 <div class="sect3">
-<h4 id="_protocols_thoughts_for_enterprise_world">Protocols thoughts (for Enterprise world)</h4>
-<div class="paragraph"><p>Downside: Websocket spec gives you only transport, but there is no high level protocol. Developers need to invent problem related protocols (text or binary).Lets discuss what are current options do we have from protocol modelling perspective.</p></div>
+<h4 id="_protocols_considerations_for_enterprise_applications">Protocols Considerations for Enterprise Applications</h4>
+<div class="paragraph"><p>The downside: WebSockets specification gives you only the transport, but it doesn&#8217;t include the application-level protocol. Developers need to invent the application-specific text or binary protocols. For example, the auction bid has to be presented in a form agreed upon by all application modules. Let&#8217;s discuss our options from protocol modeling perspective.</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -52399,12 +52429,11 @@ REST, JSON, CSV
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p><em>TBD</em></p></div>
+<div class="paragraph"><p><em>TODO</em></p></div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_websockets_and_proxies">Websockets and proxies</h3>
-<div class="paragraph"><p>TBD</p></div>
+<h3 id="_websockets_and_proxies">Websockets and Proxies</h3>
 </div>
 <div class="sect2">
 <h3 id="_websockets_and_http_2_0">WebSockets and HTTP 2.0</h3>
@@ -52493,7 +52522,7 @@ mobile phone.</p></div>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-11-12 17:57:13 EST
+Last updated 2012-11-13 03:36:19 EST
 </div>
 </div>
 </body>
