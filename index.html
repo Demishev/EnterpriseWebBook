@@ -828,7 +828,7 @@ install: function(toclevels) {
 }
 
 }
-asciidoc.install(2);
+asciidoc.install(3);
 /*]]>*/
 </script>
 </head>
@@ -37260,7 +37260,8 @@ http://www.gnu.org/software/src-highlite -->
 
                  <span style="color: #FF0000">}</span><span style="color: #990000">],</span>
                 makeAppointment<span style="color: #990000">:</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">()</span><span style="color: #FF0000">{</span>
-                    console<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">log</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"Steven wants to see  "</span> <span style="color: #990000">+</span> <span style="font-weight: bold"><span style="color: #0000FF">this</span></span><span style="color: #990000">.</span>firstName <span style="color: #990000">+</span> <span style="color: #FF0000">". He'll call at "</span> <span style="color: #990000">+</span> <span style="font-weight: bold"><span style="color: #0000FF">this</span></span><span style="color: #990000">.</span>phones<span style="color: #990000">[</span><span style="color: #993399">0</span><span style="color: #990000">].</span>numb<span style="color: #990000">);</span>
+                    console<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">log</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"Steven wants to see  "</span> <span style="color: #990000">+</span> <span style="font-weight: bold"><span style="color: #0000FF">this</span></span><span style="color: #990000">.</span>firstName <span style="color: #990000">+</span>
+                                 <span style="color: #FF0000">". He'll call at "</span> <span style="color: #990000">+</span> <span style="font-weight: bold"><span style="color: #0000FF">this</span></span><span style="color: #990000">.</span>phones<span style="color: #990000">[</span><span style="color: #993399">0</span><span style="color: #990000">].</span>numb<span style="color: #990000">);</span>
                 <span style="color: #FF0000">}</span>
             <span style="color: #FF0000">}</span><span style="color: #990000">;</span>
 
@@ -51930,122 +51931,65 @@ using selected test framework.</p></div>
 <div class="sectionbody">
 <div class="quoteblock">
 <div class="content">
-<div class="paragraph"><p>Reducing kilobytes of data to 2 bytes… and reducing latency from 150ms
-to 50 ms is far more than marginal. In fact, these two factors alone are
-enough to make WebSocket seriously interesting…</p></div>
+<div class="paragraph"><p>Shaving off hundreds of bytes of HTTP overhead and reducing the latency from 150ms to 50 ms makes WebSocket worthwhile considering for any application.</p></div>
 </div>
 <div class="attribution">
 &#8212; http://ietf.org/mail-archive/web/hybi/current/msg00784.html
 </div></div>
-<div class="paragraph"><p>This chapter will introduce the WebSocket API, which is a part of HTML5 spec. We&#8217;ll pick one of the data flow in Save a Child site and replace HTTP communication with WebSockets protocol. Using the monitoring tool we&#8217;ll show the performance bandwidth usage benefits that WebSockets protocol brings to the Web.
-This chapter will be based on <a href="http://www.youtube.com/watch?v=vP6MfPnE1c0">this WebSockets presentation</a>.</p></div>
-<div class="paragraph"><p>Will use <a href="http://java.net/projects/tyrus">Project «Tyrus»</a> with <a href="http://dlc.sun.com.edgesuite.net/glassfish/4.0/promoted/">latest Glassfish builds</a></p></div>
-<div class="paragraph"><p>Show the server-side data push with Websockets.  Look at Socket.IO library.  Compary the data throughput with the HTTP datapush demonstrated in Ch4.</p></div>
+<div class="paragraph"><p>This chapter starts with introducing of existing "legacy" options for creating interactive Web applications. After that we&#8217;re going to introduce Server-Sent Events and WebSockets, which are included in HTML5 specification.</p></div>
+<div class="paragraph"><p>We&#8217;re going to implements the fund-raising event monitoring functionality and interactive auction for Save Sick Child application using Websockets and  Server-Sent Events. Using the monitoring tool we&#8217;ll show the performance bandwidth usage benefits that WebSockets protocol brings to the Web.</p></div>
+<div class="paragraph"><p>Will use <a href="http://java.net/projects/tyrus">Project «Tyrus»</a> with <a href="http://dlc.sun.com.edgesuite.net/glassfish/4.0/promoted/">latest Glassfish builds</a> for the server side Websocket implementation.</p></div>
+<div class="paragraph"><p>Show the server-side data push with Server-Sent Events and Websockets. Compare each other.
+Look at <a href="http://socket.io/">Socket.IO</a> library. Compare the data throughput with the HTTP data push demonstrated in Chapter 4.</p></div>
 <div class="sect2">
-<h3 id="_legacy_web_and_its_options_for_realtime_apps">Legacy Web and its options for «Realtime» apps</h3>
-<div class="ulist"><ul>
-<li>
-<p>
-(Short) Polling
-</p>
-<div class="ulist"><ul>
-<li>
-<p>
-send request to the server every X seconds.
-</p>
-</li>
-<li>
-<p>
-the response is «empty» if there is no update
-</p>
-</li>
-</ul></div>
-</li>
-<li>
-<p>
-Long Polling (ajax push)
-</p>
-<div class="ulist"><ul>
-<li>
-<p>
-send request to the server, wait for an event to happen, then send the response
-</p>
-</li>
-<li>
-<p>
-the response is never empty
-</p>
-</li>
-<li>
-<p>
-HTTP specification satisfied: indistinguishable from «slow» server
-</p>
-</li>
-</ul></div>
-</li>
-<li>
-<p>
-HTTP Streaming
-</p>
-<div class="ulist"><ul>
-<li>
-<p>
-send the request, wait for events, stream multipart/chunked response, and then wait for the events.
-</p>
-</li>
-<li>
-<p>
-The response is continually appended to.
-</p>
-</li>
-</ul></div>
-</li>
-</ul></div>
-<div class="paragraph"><p>TBD</p></div>
+<h3 id="_legacy_web_options_for_realtime_applications">Legacy Web Options for Realtime Applications</h3>
+<div class="paragraph"><p>HTTP protocol is the lingua franca of today&#8217;s Web  applications, where client-server communications are based on request-response paradigm. On the low level, Web browsers make TCP/IP connection for each and every HTTP request-response session.  And every time when we need to send data to server and get response back the browser re-establish the TCP/IP connection. So to implement interactiveness in your application currently, there are 3 basic options that developer has to use today to satisfy the real-time client-server communication requirements. Basically, that options provide hacks on top of half-duplex HTTP protocol to simulate real-time behaviour. Lets discuss each of them.</p></div>
+<div class="sect3">
+<h4 id="_polling_aka_short_polling">Polling aka Short Polling</h4>
+<div class="paragraph"><p>With polling, your client code sends request to the server every X seconds The response is «empty» if there is no update. Refer to Figure 8-1
+Good illustration of this approach is you child seating on back seat of your car and asking "Are we where?" every minute. And you replying back  with empty response "No, we&#8217;re not". There is no actual interesting payload for your kid but he still receiving some "metadata". Same with short polling what uses HTTP response with verbose headers to send empty payload.</p></div>
+<div class="paragraph"><p><em>TBD short polling illustration</em></p></div>
+<div class="paragraph"><p>Figure 8-1 Short polling</p></div>
+</div>
+<div class="sect3">
+<h4 id="_long_polling">Long Polling</h4>
+<div class="paragraph"><p>Long polling is similar to short polling: client sends request to server and instead of sending empty response (as in case with short polling), server not committing the response until information is available. When information gets available or after certain timeout server sends response and closes connection. And this process is repeated. On the contrary of short polling, long polling response is never empty.
+From HTTP specification perspective this "hack" is legit: long polling server behaviour indistinguishable from «slow» server.  That is why this technique also referred as "Hanging GET". Essentially, long polling is not server-push, but good emulation of it in situations where server push not available.</p></div>
+<div class="paragraph"><p><em>TBD long polling illustration</em></p></div>
+<div class="paragraph"><p>Figure 8-2 Long polling</p></div>
+</div>
+<div class="sect3">
+<h4 id="_http_streaming">HTTP Streaming</h4>
+<div class="paragraph"><p>Response to client never
+Client sends the request, server wait for events and  streams <span class="monospaced">multipart/chunked</span> response, and then wait for the events. The response is continually appended by server, usually with <span class="monospaced">&lt;script&gt;</span> what gets executed even after page DOM is ready.</p></div>
+<div class="paragraph"><p><em>TBD long polling illustration</em></p></div>
+<div class="paragraph"><p>Figure 8-3 HTTP streaming</p></div>
+<div class="paragraph"><p>Described above options could be used as fall-back transports for legacy browsers what doesn&#8217;t support modern HTML5 APIs - <em>Server-Sent Events</em> and <em>Websockets</em>.
+Lets see how major browsers developers, W3C and community trying to standardize these hacks for modern web.</p></div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_server_sent_events">Server-Sent Events</h3>
-<div class="ulist"><ul>
-<li>
-<p>
-<span class="monospaced">eventSource</span> API
-</p>
-</li>
-<li>
-<p>
-Use only when data doesn&#8217;t need to be sent from the client to the server
-</p>
-</li>
-<li>
-<p>
-Standardization of server-side push
-</p>
-</li>
-<li>
-<p>
-Minimal overhead (tens of bytes, not hundreds)
-</p>
-</li>
-<li>
-<p>
-HTTP based (but requires server support)
-</p>
-</li>
-</ul></div>
+<div class="paragraph"><p>Before we dive into Websocket lets briefly talk about standardised way to implement of server-side push client - Server-Sent Events. W3C introduces new browsers API and - <a href="http://dev.w3.org/html5/eventsource/"><span class="monospaced">eventSource</span></a> object. SSE allow to subscribe to remote server events in form of DOM events. Lets check how browser code looks like.</p></div>
 <div class="listingblock">
 <div class="content"><!-- Generator: GNU source-highlight 3.1.7
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
-<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">var</span></span> dataStream <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">new</span></span> <span style="font-weight: bold"><span style="color: #000000">EventSource</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"http://www.example.com"</span><span style="color: #990000">);</span> <span style="font-style: italic"><span style="color: #9A1900">// <img alt="1" src="data:image/png;base64,
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">var</span></span> source<span style="color: #990000">;</span>
+<span style="font-weight: bold"><span style="color: #0000FF">if</span></span><span style="color: #990000">(</span> <span style="color: #990000">!!</span> window<span style="color: #990000">.</span>EventSource<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    source <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">new</span></span> <span style="font-weight: bold"><span style="color: #000000">EventSource</span></span><span style="color: #990000">(</span><span style="color: #FF0000">'/donate_web/api/donations/events'</span><span style="color: #990000">);</span>  <span style="font-style: italic"><span style="color: #9A1900">// <img alt="1" src="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
 VY6xDcAwCAS/pPQaLim9QmajdOk2I2SNrMEIlARIoigU8Cek/4e7zdHaWOYOVwaoA6wOCw05Y7FB
 gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
 YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
 dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
 ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII="></span></span>
+<span style="color: #FF0000">}</span> <span style="font-weight: bold"><span style="color: #0000FF">else</span></span> <span style="color: #FF0000">{</span>
+    console<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">log</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"sse not supported"</span><span style="color: #990000">)</span>
+<span style="color: #FF0000">}</span>
 
-dataStream<span style="color: #990000">.</span>onopen <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>evt<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>         <span style="font-style: italic"><span style="color: #9A1900">// <img alt="2" src="data:image/png;base64,
+source<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">addEventListener</span></span><span style="color: #990000">(</span><span style="color: #FF0000">'open'</span><span style="color: #990000">,</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>e<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>                   <span style="font-style: italic"><span style="color: #9A1900">// <img alt="2" src="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB7SURBVHja
 HY6hFcMwDEQ/NDQsNSwU9Apdo7Cw0CsIBoZmhKzQEQJLDQsFVclHpHu693W429Zr7bu541Pg3kCm
 Y0K75u9TEUPhuGgWU4mQDvieEaSQEnsT6zKPeZY0EUNtrHMCXvYUuSUg0PsMjUSvpysUT6OOSil9
@@ -52053,13 +51997,10 @@ izp/VNk1YJ8vf6MAAABDdEVYdFNvZnR3YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8w
 MSBjcmlzdHlAbXlzdGljLmVzLmR1cG9udC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUAODBlYWU1
 MjljOTRhN2Y0N2RlY2NmYWRhMjhhY2I5ZGblb7ENAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30A
 AAAASUVORK5CYII="></span></span>
-    console<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">log</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"open"</span><span style="color: #990000">);</span>
-<span style="color: #FF0000">}</span>
-dataStream<span style="color: #990000">.</span>onerror <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>evt<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
-    console<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">log</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"error"</span><span style="color: #990000">);</span>
-<span style="color: #FF0000">}</span><span style="color: #990000">;</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Connection was opened.</span></span>
+<span style="color: #FF0000">}</span><span style="color: #990000">,</span> <span style="font-weight: bold"><span style="color: #0000FF">false</span></span><span style="color: #990000">);</span>
 
-dataStream<span style="color: #990000">.</span>onmessage <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>evt<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>      <span style="font-style: italic"><span style="color: #9A1900">// <img alt="3" src="data:image/png;base64,
+source<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">addEventListener</span></span><span style="color: #990000">(</span><span style="color: #FF0000">'create'</span><span style="color: #990000">,</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>e<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>                 <span style="font-style: italic"><span style="color: #9A1900">// <img alt="3" src="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB4SURBVHja
 JU6rFcNADBM09BqBhl6ltDCwKxQeDOwKB7tGYGCoYaChK6cmlt7TD1W5uap/sgoVBnEXWBTSoOdx
 7gpLDOAVorWC0ABdcBPqwZtx8Muf+DPXJpQ96Nu/LSMYl/n17oCOnplTOrpiwW3sUs4ZJmob5/wA
@@ -52067,9 +52008,25 @@ Ubg1Y/zrjUwAAABDdEVYdFNvZnR3YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBj
 cmlzdHlAbXlzdGljLmVzLmR1cG9udC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUAODBiYmRhMjcy
 NmRkYWNlOGFiOGEwMWY1OWRlMmViZGII/Q51AAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAA
 SUVORK5CYII="></span></span>
-    <span style="font-style: italic"><span style="color: #9A1900">// Process message</span></span>
-    console<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">log</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"message: "</span> <span style="color: #990000">+</span> evt<span style="color: #990000">.</span>data<span style="color: #990000">);</span>
-<span style="color: #FF0000">}</span></tt></pre></div></div>
+    console<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">log</span></span><span style="color: #990000">(</span>e<span style="color: #990000">.</span>data<span style="color: #990000">);</span>
+<span style="color: #FF0000">}</span><span style="color: #990000">,</span> <span style="font-weight: bold"><span style="color: #0000FF">false</span></span><span style="color: #990000">);</span>
+
+source<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">addEventListener</span></span><span style="color: #990000">(</span><span style="color: #FF0000">'update'</span><span style="color: #990000">,</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>e<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>                 <span style="font-style: italic"><span style="color: #9A1900">// <img alt="4" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABzSURBVHja
+HY0hEoUwEEMjkZVYZGVlr1CJxCKRXKPyy28reyVsZeXKsCFi573ZzAQk+x5jaQ6gFQAxIA8XceEN
+ZEN3DkOCH/TobUoSVuAYwSSLyzbvaHWVFJxUmmp+PF+twrLkuXzLwPmZ8+OjtH8KS6pGvuoGNo5b
+6rzDAAAAQ3RFWHRTb2Z0d2FyZQBAKCMpSW1hZ2VNYWdpY2sgNC4yLjggOTkvMDgvMDEgY3Jpc3R5
+QG15c3RpYy5lcy5kdXBvbnQuY29tkbohuAAAACp0RVh0U2lnbmF0dXJlADlmODJmY2FjOWUwMzlj
+YmRiNzIzODBhNDU5MTMyNGY1gLv4dgAAAA50RVh0UGFnZQAxMngxMiswKzCEbbt9AAAAAElFTkSu
+QmCC"></span></span>
+    console<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">log</span></span><span style="color: #990000">(</span>e<span style="color: #990000">.</span>data<span style="color: #990000">);</span>
+<span style="color: #FF0000">}</span><span style="color: #990000">,</span> <span style="font-weight: bold"><span style="color: #0000FF">false</span></span><span style="color: #990000">);</span>
+
+source<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">addEventListener</span></span><span style="color: #990000">(</span><span style="color: #FF0000">'error'</span><span style="color: #990000">,</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>e<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span><span style="color: #990000">(</span>e<span style="color: #990000">.</span>readyState <span style="color: #990000">==</span> EventSource<span style="color: #990000">.</span>CLOSED<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+        <span style="font-style: italic"><span style="color: #9A1900">// Connection was closed.</span></span>
+    <span style="color: #FF0000">}</span>
+<span style="color: #FF0000">}</span><span style="color: #990000">,</span> <span style="font-weight: bold"><span style="color: #0000FF">false</span></span><span style="color: #990000">);</span></tt></pre></div></div>
 <div class="colist arabic"><table>
 <tr><td><img alt="1" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
 VY6xDcAwCAS/pPQaLim9QmajdOk2I2SNrMEIlARIoigU8Cek/4e7zdHaWOYOVwaoA6wOCw05Y7FB
@@ -52077,7 +52034,7 @@ gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
 YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
 dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
 ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII="></td><td>
-Create new EventSource
+Create new EventSource. At this point browser will sends GET request to specified endpoint to register itself on the server
 </td></tr>
 <tr><td><img alt="2" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB7SURBVHja
 HY6hFcMwDEQ/NDQsNSwU9Apdo7Cw0CsIBoZmhKzQEQJLDQsFVclHpHu693W429Zr7bu541Pg3kCm
@@ -52095,45 +52052,55 @@ Ubg1Y/zrjUwAAABDdEVYdFNvZnR3YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBj
 cmlzdHlAbXlzdGljLmVzLmR1cG9udC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUAODBiYmRhMjcy
 NmRkYWNlOGFiOGEwMWY1OWRlMmViZGII/Q51AAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAA
 SUVORK5CYII="></td><td>
-Handle messages
+Handle messages <span class="monospaced">create</span> events
+</td></tr>
+<tr><td><img alt="4" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABzSURBVHja
+HY0hEoUwEEMjkZVYZGVlr1CJxCKRXKPyy28reyVsZeXKsCFi573ZzAQk+x5jaQ6gFQAxIA8XceEN
+ZEN3DkOCH/TobUoSVuAYwSSLyzbvaHWVFJxUmmp+PF+twrLkuXzLwPmZ8+OjtH8KS6pGvuoGNo5b
+6rzDAAAAQ3RFWHRTb2Z0d2FyZQBAKCMpSW1hZ2VNYWdpY2sgNC4yLjggOTkvMDgvMDEgY3Jpc3R5
+QG15c3RpYy5lcy5kdXBvbnQuY29tkbohuAAAACp0RVh0U2lnbmF0dXJlADlmODJmY2FjOWUwMzlj
+YmRiNzIzODBhNDU5MTMyNGY1gLv4dgAAAA50RVh0UGFnZQAxMngxMiswKzCEbbt9AAAAAElFTkSu
+QmCC"></td><td>
+Handle messages <span class="monospaced">update</span> events
 </td></tr>
 </table></div>
+<div class="paragraph"><p>Server-Sent Events is good candidate when data doesn&#8217;t need to be sent from the client to the server.
+In this example server sends 2 types of events <span class="monospaced">create</span> and <span class="monospaced">update</span> to notify subscribed clients about changing information about donation data so connected clients can monitor fundraising process. We can create as many named-events as we want.
+This technique still HTTP based but requires server support. In the server side combination of HTTP 1.1 Keep-alive connection and <span class="monospaced">text/event-stream</span> content type. Overhead minimal - instead of hundreds of bytes, server sends only tens of bytes.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_introducing_websockets">Introducing Websockets</h3>
-<div class="paragraph"><p>What is websockets?</p></div>
-<div class="quoteblock">
-<div class="content">
-<div class="paragraph"><p>Clean standardization for complex hacks used to simulate real time, bidirectional communication</p></div>
+<div class="sect3">
+<h4 id="_what_is_websockets">What is websockets?</h4>
+<div class="paragraph"><p>Websockets is bi-direction full-duplex framed socket-based protocol.</p></div>
+<div class="paragraph"><p>Idea behind Websocket is very simple:
+- establish socket connection connection between client and server using HTTP for initial handshake
+- switch communication protocol from HTTP to socket-based connection
+- send message to both directions
+- send messages independently. No request-response model. Both server and client can initiate data transmission which enables real server-push
+- as a consequence previous statement, each of stakeholders can initiate  disconnect.
+We will talk of each of this statements later when we introduce Websocket API</p></div>
 </div>
-<div class="attribution">
-&#8212; http://peterlubbers.github.com/devcon5-keynote/#38
-</div></div>
-<div class="ulist"><ul>
-<li>
-<p>
-IETF RFC 6455 Protocol
-</p>
-</li>
-<li>
-<p>
-Client-side W3C API
-</p>
-<div class="ulist"><ul>
-<li>
-<p>
-Websocket Interface
-</p>
-</li>
-</ul></div>
-</li>
-</ul></div>
+<div class="sect3">
+<h4 id="_ietf_rfc_6455_protocol">IETF RFC 6455 Protocol</h4>
+<div class="paragraph"><p>Websocket introduces new protocol URI - <span class="monospaced">ws</span> and <span class="monospaced">wss</span> for secured web-socket connection.
+<em>TBD</em></p></div>
+</div>
+<div class="sect3">
+<h4 id="_websocket_interface">Websocket Interface</h4>
+<div class="paragraph"><p>To define abstract Websocket interface expert group uses <a href="http://en.wikipedia.org/wiki/Interface_description_language">Interface Description Language</a></p></div>
 <div class="listingblock">
 <div class="content"><!-- Generator: GNU source-highlight 3.1.7
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
-<pre><tt><span style="color: #990000">[</span><span style="font-weight: bold"><span style="color: #000000">Constructor</span></span><span style="color: #990000">(</span><span style="color: #008080">DOMString</span> url<span style="color: #990000">,</span> <span style="font-weight: bold"><span style="color: #000000">optional</span></span> <span style="color: #990000">(</span>DOMString <span style="color: #008080">or</span> DOMString<span style="color: #990000">[])</span> protocols<span style="color: #990000">)]</span>
+<pre><tt><span style="color: #990000">[</span><span style="font-weight: bold"><span style="color: #000000">Constructor</span></span><span style="color: #990000">(</span><span style="color: #008080">DOMString</span> url<span style="color: #990000">,</span> <span style="font-weight: bold"><span style="color: #000000">optional</span></span> <span style="color: #990000">(</span>DOMString <span style="color: #008080">or</span> DOMString<span style="color: #990000">[])</span> protocols<span style="color: #990000">)]</span> <span style="font-style: italic"><span style="color: #9A1900">//<img alt="1" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
+VY6xDcAwCAS/pPQaLim9QmajdOk2I2SNrMEIlARIoigU8Cek/4e7zdHaWOYOVwaoA6wOCw05Y7FB
+gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
+YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
+dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
+ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII="></span></span>
 <span style="font-weight: bold"><span style="color: #0000FF">interface</span></span> <span style="color: #008080">WebSocket</span> <span style="color: #990000">:</span> EventTarget <span style="color: #FF0000">{</span>
   readonly attribute <span style="color: #008080">DOMString</span> url<span style="color: #990000">;</span>
 
@@ -52160,47 +52127,142 @@ http://www.gnu.org/software/src-highlite -->
   <span style="color: #008080">void</span> <span style="font-weight: bold"><span style="color: #000000">send</span></span><span style="color: #990000">(</span><span style="color: #008080">ArrayBufferView</span> data<span style="color: #990000">);</span>
   <span style="color: #008080">void</span> <span style="font-weight: bold"><span style="color: #000000">send</span></span><span style="color: #990000">(</span><span style="color: #008080">Blob</span> data<span style="color: #990000">);</span>
 <span style="color: #FF0000">}</span><span style="color: #990000">;</span></tt></pre></div></div>
-<div class="ulist"><ul>
-<li>
-<p>
-API
-</p>
-</li>
-</ul></div>
+<div class="colist arabic"><table>
+<tr><td><img alt="1" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
+VY6xDcAwCAS/pPQaLim9QmajdOk2I2SNrMEIlARIoigU8Cek/4e7zdHaWOYOVwaoA6wOCw05Y7FB
+gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
+YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
+dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
+ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII="></td><td>
+constructor is expecting mandatory endpoint URI and optional subprotocols name
+</td></tr>
+</table></div>
+<div class="sect4">
+<h5 id="_client_side_api">Client-side API</h5>
+<div class="paragraph"><p>Now, when we have basic idea of Websocket interface lets see how client side JavaScript API looks like.</p></div>
 <div class="listingblock">
 <div class="content"><!-- Generator: GNU source-highlight 3.1.7
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
 <pre><tt><span style="font-weight: bold"><span style="color: #0000FF">var</span></span> ws<span style="color: #990000">;</span>
-<span style="font-weight: bold"><span style="color: #0000FF">if</span></span><span style="color: #990000">(</span>window<span style="color: #990000">.</span>WebSocket<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>   
-    <span style="font-weight: bold"><span style="color: #000000">output</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"WebSocket supported in your browser"</span><span style="color: #990000">);</span>   
+<span style="font-weight: bold"><span style="color: #0000FF">if</span></span><span style="color: #990000">(</span>window<span style="color: #990000">.</span>WebSocket<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>    <span style="font-style: italic"><span style="color: #9A1900">// <img alt="1" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
+VY6xDcAwCAS/pPQaLim9QmajdOk2I2SNrMEIlARIoigU8Cek/4e7zdHaWOYOVwaoA6wOCw05Y7FB
+gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
+YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
+dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
+ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII="></span></span>
+    console<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">log</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"WebSocket supported in your browser"</span><span style="color: #990000">);</span>   
 
-    ws <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">new</span></span> <span style="font-weight: bold"><span style="color: #000000">WebSocket</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"ws://www.websockets.org/echo"</span><span style="color: #990000">);</span>
-
-    <span style="font-style: italic"><span style="color: #9A1900">// Set event handlers.</span></span>
-    ws<span style="color: #990000">.</span>onopen <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">()</span> <span style="color: #FF0000">{</span> <span style="font-weight: bold"><span style="color: #000000">output</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"onopen"</span><span style="color: #990000">);</span> 
-    <span style="color: #FF0000">}</span><span style="color: #990000">;</span>   
-
-    ws<span style="color: #990000">.</span>onmessage <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>e<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>     
-        <span style="font-style: italic"><span style="color: #9A1900">// e.data contains received string.</span></span>
-             <span style="font-weight: bold"><span style="color: #000000">output</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"echo from server : "</span> <span style="color: #990000">+</span> e<span style="color: #990000">.</span>data<span style="color: #990000">);</span>
+    ws <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">new</span></span> <span style="font-weight: bold"><span style="color: #000000">WebSocket</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"ws://www.websockets.org/echo"</span><span style="color: #990000">);</span> <span style="font-style: italic"><span style="color: #9A1900">// <img alt="2" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB7SURBVHja
+HY6hFcMwDEQ/NDQsNSwU9Apdo7Cw0CsIBoZmhKzQEQJLDQsFVclHpHu693W429Zr7bu541Pg3kCm
+Y0K75u9TEUPhuGgWU4mQDvieEaSQEnsT6zKPeZY0EUNtrHMCXvYUuSUg0PsMjUSvpysUT6OOSil9
+izp/VNk1YJ8vf6MAAABDdEVYdFNvZnR3YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8w
+MSBjcmlzdHlAbXlzdGljLmVzLmR1cG9udC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUAODBlYWU1
+MjljOTRhN2Y0N2RlY2NmYWRhMjhhY2I5ZGblb7ENAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30A
+AAAASUVORK5CYII="></span></span>
+    ws<span style="color: #990000">.</span>onopen <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">()</span> <span style="color: #FF0000">{</span> console<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">log</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"onopen"</span><span style="color: #990000">);</span> 
+    <span style="color: #FF0000">}</span><span style="color: #990000">;</span>  <span style="font-style: italic"><span style="color: #9A1900">// <img alt="3" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB4SURBVHja
+JU6rFcNADBM09BqBhl6ltDCwKxQeDOwKB7tGYGCoYaChK6cmlt7TD1W5uap/sgoVBnEXWBTSoOdx
+7gpLDOAVorWC0ABdcBPqwZtx8Muf+DPXJpQ96Nu/LSMYl/n17oCOnplTOrpiwW3sUs4ZJmob5/wA
+Ubg1Y/zrjUwAAABDdEVYdFNvZnR3YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBj
+cmlzdHlAbXlzdGljLmVzLmR1cG9udC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUAODBiYmRhMjcy
+NmRkYWNlOGFiOGEwMWY1OWRlMmViZGII/Q51AAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAA
+SUVORK5CYII="> </span></span>
+     
+    ws<span style="color: #990000">.</span>onmessage <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">(</span>e<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+        console<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">log</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"echo from server : "</span> <span style="color: #990000">+</span> e<span style="color: #990000">.</span>data<span style="color: #990000">);</span>  <span style="font-style: italic"><span style="color: #9A1900">// <img alt="4" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABzSURBVHja
+HY0hEoUwEEMjkZVYZGVlr1CJxCKRXKPyy28reyVsZeXKsCFi573ZzAQk+x5jaQ6gFQAxIA8XceEN
+ZEN3DkOCH/TobUoSVuAYwSSLyzbvaHWVFJxUmmp+PF+twrLkuXzLwPmZ8+OjtH8KS6pGvuoGNo5b
+6rzDAAAAQ3RFWHRTb2Z0d2FyZQBAKCMpSW1hZ2VNYWdpY2sgNC4yLjggOTkvMDgvMDEgY3Jpc3R5
+QG15c3RpYy5lcy5kdXBvbnQuY29tkbohuAAAACp0RVh0U2lnbmF0dXJlADlmODJmY2FjOWUwMzlj
+YmRiNzIzODBhNDU5MTMyNGY1gLv4dgAAAA50RVh0UGFnZQAxMngxMiswKzCEbbt9AAAAAElFTkSu
+QmCC"></span></span>
     <span style="color: #FF0000">}</span><span style="color: #990000">;</span>
 
-    ws<span style="color: #990000">.</span>onclose <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">()</span> <span style="color: #FF0000">{</span>
+    ws<span style="color: #990000">.</span>onclose <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">()</span> <span style="color: #FF0000">{</span> <span style="font-style: italic"><span style="color: #9A1900">// <img alt="5" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB2SURBVHja
+FY6hEcQwDAQPChqGGhoaqgWX8PUYBhqGBn4rX0JooKDh/UlsZ3b2BJKXH8XPTYLh1lpt1h+BwxkR
+A23jhsCQd2IkfH9T3HEkzPFegCXUKSUSpJUPsN7UFOgc9VkZUBoz9l0yrVHZarUcJZeb9XznDyNb
+Ny9CX3/7AAAAQ3RFWHRTb2Z0d2FyZQBAKCMpSW1hZ2VNYWdpY2sgNC4yLjggOTkvMDgvMDEgY3Jp
+c3R5QG15c3RpYy5lcy5kdXBvbnQuY29tkbohuAAAACp0RVh0U2lnbmF0dXJlAGZlNjkwNDYzMzc5
+ZWIyNWU1NjJmY2M4Y2M5YjNjN2Uw37I5ngAAAA50RVh0UGFnZQAxMngxMiswKzCEbbt9AAAAAElF
+TkSuQmCC"></span></span>
         <span style="font-weight: bold"><span style="color: #000000">output</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"onclose"</span><span style="color: #990000">);</span> 
     <span style="color: #FF0000">}</span><span style="color: #990000">;</span>
-    ws<span style="color: #990000">.</span>onerror <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">()</span> <span style="color: #FF0000">{</span> <span style="font-weight: bold"><span style="color: #000000">output</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"onerror"</span><span style="color: #990000">);</span> 
+    ws<span style="color: #990000">.</span>onerror <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">function</span></span><span style="color: #990000">()</span> <span style="color: #FF0000">{</span> <span style="font-weight: bold"><span style="color: #000000">output</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"onerror"</span><span style="color: #990000">);</span>  <span style="font-style: italic"><span style="color: #9A1900">// <img alt="6" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB9SURBVHja
+FY0hEsMwDAQXChaaBgoG+guB/UZhvlAYWFhqmCeUBvoJoYaCgqrMbudu9oiI86m6tQyEb1AU6kjI
+3GxcQnVO2K0Uq/Ahi6tpFWClwLDe+wNkwt0R2yfk7Negv+csw8uWZR4c+NS4Z6FOTKmkTO88Df9W
+kfXwiD+zczjqCrgbWQAAAEN0RVh0U29mdHdhcmUAQCgjKUltYWdlTWFnaWNrIDQuMi44IDk5LzA4
+LzAxIGNyaXN0eUBteXN0aWMuZXMuZHVwb250LmNvbZG6IbgAAAAqdEVYdFNpZ25hdHVyZQBkMjVk
+NzE3NmQ2N2EwMzhhZmMxYzU2NTU4ZTNkZmIxYf0Q9bUAAAAOdEVYdFBhZ2UAMTJ4MTIrMCswhG27
+fQAAAABJRU5ErkJggg=="></span></span>
     <span style="color: #FF0000">}</span><span style="color: #990000">;</span>
 
 <span style="color: #FF0000">}</span> <span style="font-weight: bold"><span style="color: #0000FF">else</span></span> <span style="color: #FF0000">{</span>
     <span style="font-weight: bold"><span style="color: #000000">output</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"WebSocket not supported in your browser"</span><span style="color: #990000">);</span>
 <span style="color: #FF0000">}</span></tt></pre></div></div>
-<div class="ulist"><ul>
-<li>
-<p>
-websocket handshake
-</p>
+<div class="colist arabic"><table>
+<tr><td><img alt="1" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
+VY6xDcAwCAS/pPQaLim9QmajdOk2I2SNrMEIlARIoigU8Cek/4e7zdHaWOYOVwaoA6wOCw05Y7FB
+gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
+YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
+dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
+ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII="></td><td>
+Check if Websocket object is available in browser
+</td></tr>
+<tr><td><img alt="2" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB7SURBVHja
+HY6hFcMwDEQ/NDQsNSwU9Apdo7Cw0CsIBoZmhKzQEQJLDQsFVclHpHu693W429Zr7bu541Pg3kCm
+Y0K75u9TEUPhuGgWU4mQDvieEaSQEnsT6zKPeZY0EUNtrHMCXvYUuSUg0PsMjUSvpysUT6OOSil9
+izp/VNk1YJ8vf6MAAABDdEVYdFNvZnR3YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8w
+MSBjcmlzdHlAbXlzdGljLmVzLmR1cG9udC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUAODBlYWU1
+MjljOTRhN2Y0N2RlY2NmYWRhMjhhY2I5ZGblb7ENAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30A
+AAAASUVORK5CYII="></td><td>
+Instantiate new Websocket object with passing endpoint URI as constructor parameter
+</td></tr>
+<tr><td><img alt="3" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB4SURBVHja
+JU6rFcNADBM09BqBhl6ltDCwKxQeDOwKB7tGYGCoYaChK6cmlt7TD1W5uap/sgoVBnEXWBTSoOdx
+7gpLDOAVorWC0ABdcBPqwZtx8Muf+DPXJpQ96Nu/LSMYl/n17oCOnplTOrpiwW3sUs4ZJmob5/wA
+Ubg1Y/zrjUwAAABDdEVYdFNvZnR3YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBj
+cmlzdHlAbXlzdGljLmVzLmR1cG9udC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUAODBiYmRhMjcy
+NmRkYWNlOGFiOGEwMWY1OWRlMmViZGII/Q51AAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAA
+SUVORK5CYII="></td><td>
+Set event handlers for <span class="monospaced">open</span>, <span class="monospaced">message</span>, <span class="monospaced">clos</span> events
+</td></tr>
+<tr><td><img alt="4" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABzSURBVHja
+HY0hEoUwEEMjkZVYZGVlr1CJxCKRXKPyy28reyVsZeXKsCFi573ZzAQk+x5jaQ6gFQAxIA8XceEN
+ZEN3DkOCH/TobUoSVuAYwSSLyzbvaHWVFJxUmmp+PF+twrLkuXzLwPmZ8+OjtH8KS6pGvuoGNo5b
+6rzDAAAAQ3RFWHRTb2Z0d2FyZQBAKCMpSW1hZ2VNYWdpY2sgNC4yLjggOTkvMDgvMDEgY3Jpc3R5
+QG15c3RpYy5lcy5kdXBvbnQuY29tkbohuAAAACp0RVh0U2lnbmF0dXJlADlmODJmY2FjOWUwMzlj
+YmRiNzIzODBhNDU5MTMyNGY1gLv4dgAAAA50RVh0UGFnZQAxMngxMiswKzCEbbt9AAAAAElFTkSu
+QmCC"></td><td>
+<span class="monospaced">e.data</span> property of message event contains received from string message
+</td></tr>
+<tr><td><img alt="5" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB2SURBVHja
+FY6hEcQwDAQPChqGGhoaqgWX8PUYBhqGBn4rX0JooKDh/UlsZ3b2BJKXH8XPTYLh1lpt1h+BwxkR
+A23jhsCQd2IkfH9T3HEkzPFegCXUKSUSpJUPsN7UFOgc9VkZUBoz9l0yrVHZarUcJZeb9XznDyNb
+Ny9CX3/7AAAAQ3RFWHRTb2Z0d2FyZQBAKCMpSW1hZ2VNYWdpY2sgNC4yLjggOTkvMDgvMDEgY3Jp
+c3R5QG15c3RpYy5lcy5kdXBvbnQuY29tkbohuAAAACp0RVh0U2lnbmF0dXJlAGZlNjkwNDYzMzc5
+ZWIyNWU1NjJmY2M4Y2M5YjNjN2Uw37I5ngAAAA50RVh0UGFnZQAxMngxMiswKzCEbbt9AAAAAElF
+TkSuQmCC"></td><td>
+handle closing connection &#8230;
+</td></tr>
+<tr><td><img alt="6" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB9SURBVHja
+FY0hEsMwDAQXChaaBgoG+guB/UZhvlAYWFhqmCeUBvoJoYaCgqrMbudu9oiI86m6tQyEb1AU6kjI
+3GxcQnVO2K0Uq/Ahi6tpFWClwLDe+wNkwt0R2yfk7Negv+csw8uWZR4c+NS4Z6FOTKmkTO88Df9W
+kfXwiD+zczjqCrgbWQAAAEN0RVh0U29mdHdhcmUAQCgjKUltYWdlTWFnaWNrIDQuMi44IDk5LzA4
+LzAxIGNyaXN0eUBteXN0aWMuZXMuZHVwb250LmNvbZG6IbgAAAAqdEVYdFNpZ25hdHVyZQBkMjVk
+NzE3NmQ2N2EwMzhhZmMxYzU2NTU4ZTNkZmIxYf0Q9bUAAAAOdEVYdFBhZ2UAMTJ4MTIrMCswhG27
+fQAAAABJRU5ErkJggg=="></td><td>
+&#8230; and errors
+</td></tr>
+</table></div>
+<div class="paragraph"><p>Websocket handshake</p></div>
 <div class="olist arabic"><ol class="arabic">
 <li>
 <p>
@@ -52223,8 +52285,6 @@ server send response and confirms protocol upgrade
 </p>
 </li>
 </ol></div>
-</li>
-</ul></div>
 <div class="sidebarblock">
 <div class="content">
 <div class="admonitionblock">
@@ -52280,28 +52340,13 @@ PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==">
 </tr></table>
 </div>
 </div></div>
-<div class="ulist"><ul>
-<li>
-<p>
-websocket frame anatomy
-</p>
-</li>
-<li>
-<p>
-heartbeating
-</p>
-</li>
-<li>
-<p>
-Client-side frameworks
-</p>
-</li>
-<li>
-<p>
-Server-side API
-</p>
-</li>
-</ul></div>
+<div class="paragraph"><p><em>TBD</em>
+- websocket frame anatomy
+- heartbeating
+- Client-side frameworks
+- Server-side API</p></div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_websocket_use_cases">Websocket Use Cases</h3>
@@ -52333,9 +52378,10 @@ Realtime updating social streams
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p>Downside: websocket spec gives you only transport, but there is no highlevel protocol. Developers need to invent problem related protocols (text or binary).</p></div>
+<div class="paragraph"><p>For "Save Sick Child" application we&#8217;re going to use Websockets to implement web-auction functionality. Using this web-auction contributors such individuals, businesses, charitable foundations can buy handmade crafts and arts made by children.</p></div>
 <div class="sect3">
 <h4 id="_protocols_thoughts_for_enterprise_world">Protocols thoughts (for Enterprise world)</h4>
+<div class="paragraph"><p>Downside: Websocket spec gives you only transport, but there is no high level protocol. Developers need to invent problem related protocols (text or binary).Lets discuss what are current options do we have from protocol modelling perspective.</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -52353,6 +52399,7 @@ REST, JSON, CSV
 </p>
 </li>
 </ul></div>
+<div class="paragraph"><p><em>TBD</em></p></div>
 </div>
 </div>
 <div class="sect2">
@@ -52363,7 +52410,7 @@ REST, JSON, CSV
 <h3 id="_websockets_and_http_2_0">WebSockets and HTTP 2.0</h3>
 <div class="quoteblock">
 <div class="content">
-<div class="paragraph"><p>"I use the metaphor of hammers and screwdrivers. Both tools are indispensible in my workshop&#8230;</p></div>
+<div class="paragraph"><p>"I use the metaphor of hammers and screwdrivers. Both tools are indispensable in my workshop&#8230;</p></div>
 <div class="paragraph"><p>Use the right tool for the job.
 In the case of page and object delivery use SPDY.
 In the case of lightweight or streaming data delivery look to WebSocket."</p></div>
@@ -52376,12 +52423,7 @@ In the case of lightweight or streaming data delivery look to WebSocket."</p></d
 <div class="ulist"><ul>
 <li>
 <p>
-http 2.0 and spdy
-</p>
-</li>
-<li>
-<p>
-spdy and websockets
+http 2.0, spdy, websockets
 </p>
 </li>
 <li>
@@ -52451,7 +52493,7 @@ mobile phone.</p></div>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-11-09 14:52:10 EST
+Last updated 2012-11-12 17:57:13 EST
 </div>
 </div>
 </body>
